@@ -29,6 +29,7 @@ Antes de comenzar, asegurese de tener instaldo:
 ## Autores ✒️
 
 * **Daniel Alexande Reyes Pineda** - **PO, SCRUM Master, desarrollador**
+* *Carlos Eduardo Peñate Salazar** - **desarrollador**
 * los demas solo copien plantilla...
 
 ## Licencia 📄
