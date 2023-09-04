@@ -1,5 +1,4 @@
 # ProyectoDPS02T-2023
-Desarrollo de ....
 _Desarrollo de una aplicacion (...) como proyecto de catedra de la materia programacion de software multiplataforma de la Universidad Don Bosco, El Salvador_
 
 ### Pre-requisitos de instalación 📋
@@ -30,7 +29,7 @@ Antes de comenzar, asegurese de tener instaldo:
 ## Autores ✒️
 
 * **Daniel Alexande Reyes Pineda** - **PO, SCRUM Master, desarrollador**
--- los demas solo copien plantilla...
+* los demas solo copien plantilla...
 
 ## Licencia 📄
 
