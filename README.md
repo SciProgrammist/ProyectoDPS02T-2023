@@ -29,10 +29,10 @@ Antes de comenzar, asegurese de tener instaldo:
 ## Autores ✒️
 
 * **Daniel Alexande Reyes Pineda** - **PO, SCRUM Master, desarrollador**
-* *Carlos Eduardo Peñate Salazar** - **desarrollador**
-* *Antonio José Caballero Bonilla** - **desarrollador**
-* *Oscar Alexander Bonilla Sorto** - **desarrollador**
-* los demas solo copien plantilla....
+* **Carlos Eduardo Peñate Salazar** - **desarrollador**
+* **Antonio José Caballero Bonilla** - **desarrollador**
+* **Oscar Alexander Bonilla Sorto** - **desarrollador**
+
 
 ## Licencia 📄
 
