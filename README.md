@@ -46,7 +46,7 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 
 ## Enlaces de interés 👀
 
-* [Tablero en Trello] https://trello.com/invite/b/SsobM2Es/ATTIdb277c81249b31cc248d19e1c80232399532B00C/proyectodps02t-2023
+* [Tablero en Trello] https://trello.com/invite/b/lcT4DYXo/ATTIdda96f493fee42cd5e514b176c640f67F775559F/proyectodps02t-2023
 * [Manual de usuario en la nube] - https:..
 * [Manual Técnico en la nube] - https:..
 * [Video de funcionamiento] - https:..
