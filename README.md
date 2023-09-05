@@ -50,4 +50,4 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 * [Manual de usuario en la nube] - https:..
 * [Manual Técnico en la nube] - https:..
 * [Video de funcionamiento] - https:..
-* [Enlace a Mockups] - https:..
+* [Enlace a Mockups] - https://www.figma.com/file/usH32S6093TPHjQ3bDhxsZ/Mockups-DSP-C2-2023?type=design&node-id=0%3A1&mode=dev
