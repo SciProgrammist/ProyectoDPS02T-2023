@@ -49,3 +49,11 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 * [Manual Técnico en la nube] - https:..
 * [Video de funcionamiento] - https:..
 * [Enlace a Mockups] - https:..
+
+--secrects
+app
+secrect-pass-2023
+
+--dependencias añadidas
+
+npx expo install expo-auth-session expo-random expo-dev-client expo-web-browser
