@@ -53,7 +53,12 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 --secrects
 app
 secrect-pass-2023
+fb: firebase pass: secrect-pass-2023
+EXPO_TOKEN
+--pkZozjPwYhytcwTHekjkgJMVEvLKxPCYgnt6dD
 
+fb
+bcb804c7958be3e3161d18bb4b15f1e2
 --dependencias añadidas
 
 npx expo install expo-auth-session expo-random expo-dev-client expo-web-browser
