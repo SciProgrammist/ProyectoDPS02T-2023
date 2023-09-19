@@ -1,16 +1,4 @@
 {
-  "expo": {
-    "name": "la-cuponera-react",
-    "slug": "la-cuponera-react",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "2504ba60-cafa-4fdf-aeea-11922a137157"
-      }
-    }
-  },
-  "name": "la-cuponera-react"
+  "name": "RNFirebaseFacebookAuth",
+  "displayName": "RNFirebaseFacebookAuth"
 }
