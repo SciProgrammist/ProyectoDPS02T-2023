@@ -62,3 +62,20 @@ bcb804c7958be3e3161d18bb4b15f1e2
 --dependencias añadidas
 
 npx expo install expo-auth-session expo-random expo-dev-client expo-web-browser
+
+
+1489406551856084
+0301da9af50c5d1922e68a41123bff25
+
+
+
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\carlo\OneDrive\Escritorio\ProyectoDPS02T-2023\debug.keystore" | "C:\bin\openssl" sha1 -binary |"C:\bin\openssl" base64
+
+
+Oru4LoEQro6th5tNR7xRTEmYJfY=
+
+
+FIREBASE FB
+https://proyecto-dsp-2023.firebaseapp.com/__/auth/handler
+1489406551856084
+0301da9af50c5d1922e68a41123bff25

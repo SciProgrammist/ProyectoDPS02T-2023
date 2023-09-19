@@ -1,5 +1,5 @@
 {
-  "name": "RNFirebaseFacebookAuth",
+  "name": "la-cuponera-react",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-firebase/app": "^10.5.0",
-    "@react-native-firebase/auth": "^10.5.1",
+    "@react-native-firebase/app": "^10.8.1",
+    "@react-native-firebase/auth": "^10.8.1",
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-fbsdk": "^3.0.0"
