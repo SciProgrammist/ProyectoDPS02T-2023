@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "la-cuponera-react",
+    "slug": "la-cuponera-react",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "la-cuponera-react"
+}
