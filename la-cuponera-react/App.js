@@ -4,11 +4,15 @@ import { GoogleSignin, statusCodes, GoogleSigninButton } from '@react-native-goo
 import { Button, SocialIcon } from 'react-native-elements'
 import variables from './src/utis/variables';
 import { styles } from './src/utis/styles';
+import FormComponent from './src/components/login/form.component';
+import LoginComponent from './src/components/login/login.component';
 
 const HomeScreen = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [error, setError] = useState(null)
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -50,11 +54,15 @@ const HomeScreen = ({ navigation }) => {
   }
 
 
-  if (usuario === null) {
+  if (isLoggedIn == !true) {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Iniciar Sessión</Text>
         <Text style={styles.text}>Bienvenido de nuevo!</Text>
+        <FormComponent
+          setUsername={setUsername}
+          setPassword={setPassword} />
+
         <Pressable onPress={googleLogin}>
           <View>
             <SocialIcon
@@ -65,25 +73,19 @@ const HomeScreen = ({ navigation }) => {
             />
           </View>
         </Pressable>
+        <SocialIcon
+          title='Sign In With Facebook'
+          button
+          dark
+          type='facebook'
+        />
       </View>
     );
   } else {
     return (
       <View>
-        <View>
-          <Pressable onPress={googleLogin}>
-            <View>
-              <SocialIcon
-                title='Sign In With Google'
-                button
-                light
-                type='google'
-              />
-            </View>
-          </Pressable>
-        </View>
         <Text>Bienvenido {usuario.givenName} </Text>
-        <Button onPress={signOut} title='Sign Out'></Button>
+        <LoginComponent signOut={signOut} />
       </View>);
   }
 
