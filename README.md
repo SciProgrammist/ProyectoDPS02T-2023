@@ -49,33 +49,3 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 * [Manual Técnico en la nube] - https:..
 * [Video de funcionamiento] - https:..
 * [Enlace a Mockups] - https:..
-
---secrects
-app
-secrect-pass-2023
-fb: firebase pass: secrect-pass-2023
-EXPO_TOKEN
---pkZozjPwYhytcwTHekjkgJMVEvLKxPCYgnt6dD
-
-fb
-bcb804c7958be3e3161d18bb4b15f1e2
---dependencias añadidas
-
-npx expo install expo-auth-session expo-random expo-dev-client expo-web-browser
-
-
-1489406551856084
-0301da9af50c5d1922e68a41123bff25
-
-
-
-keytool -exportcert -alias androiddebugkey -keystore "C:\Users\carlo\OneDrive\Escritorio\ProyectoDPS02T-2023\debug.keystore" | "C:\bin\openssl" sha1 -binary |"C:\bin\openssl" base64
-
-
-Oru4LoEQro6th5tNR7xRTEmYJfY=
-
-
-FIREBASE FB
-https://proyecto-dsp-2023.firebaseapp.com/__/auth/handler
-1489406551856084
-0301da9af50c5d1922e68a41123bff25

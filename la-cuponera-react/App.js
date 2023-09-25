@@ -1,65 +1,87 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions, ImageBackground, Image, TouchableOpacity, Pressable, ActivityIndicator } from 'react-native';
 import { GoogleSignin, statusCodes, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import { SocialIcon } from 'react-native-elements'
+import variables from './src/utis/variables';
+
+const HomeScreen = ({ navigation }) => {
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: variables.WEBCLIENTID,
+      offlineAccess: false
+    })
+  }, [usuario])
+
+  
+  const googleLogin = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+
+      setUsuario(userInfo.user);
+      console.log("userinfo" , usuario);
 
 
-const screenHeight = Dimensions.get('window').height;
-const screenWidth = Dimensions.get('window').width;
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        console.log(error)
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        console.log(error)
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        console.log(error)
+      } else {
+      }
+    }
+  };
 
-const HomeScreen = ({navigation}) => {
+  async function signOut() {
+    try {
+      await GoogleSignin.revokeAccess()
+      await GoogleSignin.signOut()
+      setIsLoggedIn(false)
+    } catch (error) {
+      Alert.alert('Something else went wrong... ', error.toString())
+    }
+  }
 
-    const webClientId = "898230258411-477bfkj52e0uvqrab8e5498h3dp2vtpa.apps.googleusercontent.com"; 
-
-    useEffect(()=>{
-        GoogleSignin.configure({
-            webClientId: webClientId,
-        })
-    },[])
-
-    const googleLogin = async () => {
-        try {
-            await GoogleSignin.hasPlayServices();
-            const userInfo = await GoogleSignin.signIn();
-            console.log("userinfo", userInfo);
-
-        } catch (error) {
-            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-                console.log(error)
-            } else if (error.code === statusCodes.IN_PROGRESS) {
-                console.log(error)
-            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-                console.log(error)
-            } else {
-            }
-        }
-      };
-    return(
-      <View style={{margin:20}}>
-          <Pressable onPress={googleLogin}>
-              <View style={styles.loginButton}>
-                <View style={{marginLeft:5}}>
-                    <Text style={{color: '#222222',fontWeight:'400',fontSize:18}}>
-                        Login with Google
-                    </Text>
-                </View>
-              </View>
-          </Pressable>
+  
+  if (usuario === null) {
+    return (
+      <View>
+        <Pressable onPress={googleLogin}>
+          <View>
+            <SocialIcon
+              title='Sign In With Google'
+              button
+              light
+              type='google'
+            />
+          </View>
+        </Pressable>
       </View>
     );
+  } else {
+    return (
+      <View>
+        <View>
+        <Pressable onPress={googleLogin}>
+          <View>
+            <SocialIcon
+              title='Sign In With Google'
+              button
+              light
+              type='google'
+            />
+          </View>
+        </Pressable>
+      </View>
+        <Text>Bienvenido {usuario.givenName} </Text>
+      </View>);
+  }
+
 }
 
-const styles= StyleSheet.create({
-    loginButton: {
-        display:"flex",
-        flexDirection:"row",
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#FFFFFF",
-        width:screenWidth-50,
-        height:48,
-        borderRadius:10
-    }
-});
 
 export default HomeScreen;
