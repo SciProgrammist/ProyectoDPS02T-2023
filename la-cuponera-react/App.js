@@ -5,7 +5,7 @@ import { Button, SocialIcon } from 'react-native-elements'
 import variables from './src/utis/variables';
 import { styles } from './src/utis/styles';
 import FormComponent from './src/components/login/form.component';
-import LoginComponent from './src/components/login/login.component';
+import LoginComponent from './src/components/login/logout.component';
 
 const HomeScreen = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
@@ -57,9 +57,7 @@ const HomeScreen = ({ navigation }) => {
   if (isLoggedIn == !true) {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Iniciar Sessión</Text>
-        <Text style={styles.text}>Bienvenido de nuevo!</Text>
-        <FormComponent
+         <FormComponent
           setUsername={setUsername}
           setPassword={setPassword} />
 

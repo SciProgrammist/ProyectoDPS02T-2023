@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
     fontSize: 12,
   },
   viewForm: {
-    bottom: 0,
     width: '95%',
     paddingHorizontal: 0,
     borderRadius: 20,

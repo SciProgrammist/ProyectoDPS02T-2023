@@ -8,6 +8,9 @@ function FormComponent(props) {
 
     return (
         <>
+            <Text style={styles.text}>Iniciar Sessión</Text>
+            <Text style={styles.text}>Bienvenido de nuevo!</Text>
+            
             <View style={styles.viewForm}>
                 <TextInput
                     placeholder="Ingrese su usuario o correo"
