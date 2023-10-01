@@ -1,12 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { StyleSheet, View, Text, Dimensions, ImageBackground, Image, TouchableOpacity, Pressable, ActivityIndicator } from 'react-native';
 import { GoogleSignin, statusCodes, GoogleSigninButton } from '@react-native-google-signin/google-signin';
-import { Button, SocialIcon } from 'react-native-elements'
 import variables from './src/utis/variables';
 import { styles } from './src/utis/styles';
 import FormComponent from './src/components/login/form.component';
 import LoginComponent from './src/components/login/logout.component';
-import colors from './src/utis/colors';
+import { auth } from './src/utis/firebase';
+import SocialNetworks from './src/components/login/social.networks.component';
+import Separator from './src/components/generic/separator.component';
 
 const HomeScreen = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
@@ -46,56 +47,54 @@ const HomeScreen = ({ navigation }) => {
 
   async function signOut() {
     try {
+      setIsLoggedIn(false)
       await GoogleSignin.revokeAccess()
       await GoogleSignin.signOut()
-      setIsLoggedIn(false)
+      
     } catch (error) {
       console.log('Something else went wrong... ', error.toString())
     }
   }
 
+  async function logInBase() {
+    try {
+      console.log("LOGIN BASE, usuario " + username + " pass " + password);
+      auth.signInWithEmailAndPassword(username, password)
+        .then((userCredential) => {
+          console.log(userCredential);
+          setUsuario(userCredential);
+          setIsLoggedIn(true);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
 
+
+
+    } catch (error) {
+      console.log('Something else went wrong... ', error.toString())
+    }
+  }
 
   if (isLoggedIn == !true) {
     return (
       <View style={styles.container}>
         <FormComponent
           setUsername={setUsername}
-          setPassword={setPassword} />
+          setPassword={setPassword}
+          logInBase={logInBase} />
 
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <View style={{ flex: 1, height: 1, backgroundColor: colors.PRIMARY_COLOR }} />
-          <View>
-            <Text style={{ width: 50, margin: 'auto', textAlign: 'center', color: colors.PRIMARY_COLOR }}>Or</Text>
-          </View>
-          <View style={{ flex: 1, height: 1, backgroundColor: colors.PRIMARY_COLOR, }} />
-        </View>
+        <Separator />
 
-        <Pressable onPress={googleLogin} style={{ marginTop: 125 }}>
-          <View>
-            <SocialIcon
-              title='Sign In With Facebook'
-              button
-              dark
-              type='facebook'
-            />
-
-            <SocialIcon
-              style={{ marginTop: 15 }}
-              title='Sign In With Google'
-              button
-              light
-              type='google'
-            />
-          </View>
-        </Pressable>
+        <SocialNetworks
+          googleLogin={googleLogin} />
 
       </View>
     );
   } else {
     return (
       <View>
-        <Text>Bienvenido {usuario.givenName} </Text>
+        <Text>Bienvenido {(usuario.givenName == null) ? usuario.user.email : usuario.givenName} </Text>
         <LoginComponent signOut={signOut} />
       </View>);
   }

@@ -6,6 +6,7 @@ import ForgotPassword from './forgot.component';
 
 function FormComponent(props) {
     const { setUsername, setPassword } = props;
+    const { logInBase } = props;
 
     return (
         <>
@@ -30,6 +31,7 @@ function FormComponent(props) {
                 <SocialIcon
                     title='Iniciar Sesión'
                     button
+                    onPress={logInBase}
                     style={{ backgroundColor: '#3b5998' }}
                     color="blue"
                 />
