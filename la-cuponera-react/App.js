@@ -6,6 +6,7 @@ import variables from './src/utis/variables';
 import { styles } from './src/utis/styles';
 import FormComponent from './src/components/login/form.component';
 import LoginComponent from './src/components/login/logout.component';
+import colors from './src/utis/colors';
 
 const HomeScreen = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
@@ -54,16 +55,33 @@ const HomeScreen = ({ navigation }) => {
   }
 
 
+
   if (isLoggedIn == !true) {
     return (
       <View style={styles.container}>
-         <FormComponent
+        <FormComponent
           setUsername={setUsername}
           setPassword={setPassword} />
 
-        <Pressable onPress={googleLogin}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ flex: 1, height: 1, backgroundColor: colors.PRIMARY_COLOR }} />
+          <View>
+            <Text style={{ width: 50, margin: 'auto', textAlign: 'center', color: colors.PRIMARY_COLOR }}>Or</Text>
+          </View>
+          <View style={{ flex: 1, height: 1, backgroundColor: colors.PRIMARY_COLOR, }} />
+        </View>
+
+        <Pressable onPress={googleLogin} style={{ marginTop: 125 }}>
           <View>
             <SocialIcon
+              title='Sign In With Facebook'
+              button
+              dark
+              type='facebook'
+            />
+
+            <SocialIcon
+              style={{ marginTop: 15 }}
               title='Sign In With Google'
               button
               light
@@ -71,12 +89,7 @@ const HomeScreen = ({ navigation }) => {
             />
           </View>
         </Pressable>
-        <SocialIcon
-          title='Sign In With Facebook'
-          button
-          dark
-          type='facebook'
-        />
+
       </View>
     );
   } else {

@@ -49,3 +49,7 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 * [Manual Técnico en la nube] - https:..
 * [Video de funcionamiento] - https:..
 * [Enlace a Mockups] - https:..
+
+## usuario generico
+ carlossalazar2228@gmail.com
+ L4Kp7vx6vew3CrT
