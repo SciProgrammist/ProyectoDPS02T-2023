@@ -1,10 +1,10 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
-
+import variables from './variables';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAKQIKcnOljSYElBhnKNfukZhbMpl53MF0",
-    authDomain: "https://proyecto-dsp-2023-default-rtdb.firebaseio.com",
+    apiKey: variables.APIKEY,
+    authDomain: variables.AUTHDOMAIN,
 }
 
 if (!firebase.apps.length) {

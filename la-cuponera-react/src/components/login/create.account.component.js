@@ -2,24 +2,32 @@ import React from 'react';
 import { styles } from '../../utis/styles';
 import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { Button, SocialIcon } from 'react-native-elements'
-import ForgotPassword from './forgot.component';
+import Separator from '../generic/separator.component';
+import SocialNetworks from './social.networks.component';
 
-function CreateAccount(props) {
-    const { setUsername, setEmail, setPassword } = props;
+function CreateAccountTemplate(props) {
+    const { setUsername, setEmail, setPassword, setIsLoggedIn, setIsCreateAccount } = props;
     const { createAccount } = props;
+    const { googleLogin } = props;
 
+    function returnLogin() {
+        console.log("RETURN LOGIN");
+        setIsLoggedIn(false);
+        setIsCreateAccount(false);
+    }
+    
     return (
         <>
-            <Text style={styles.text}>Crear Cuenta</Text>
+            <Text style={styles.createAccountText}>Crear Cuenta</Text>
 
-            <View style={styles.viewForm}>
+            <View style={styles.createAccount}>
                 <TextInput
                     placeholder="Ingrese su usuario"
                     keyboardType="default"
                     style={styles.input}
                     onChange={(e) => setUsername(e.nativeEvent.text)}
                 />
-                 <TextInput
+                <TextInput
                     placeholder="Ingrese su correo"
                     keyboardType="default"
                     style={styles.input}
@@ -31,25 +39,32 @@ function CreateAccount(props) {
                     style={styles.input}
                     onChange={(e) => setPassword(e.nativeEvent.text)}
                 />
-               <ForgotPassword/>
 
                 <SocialIcon
-                    title='Iniciar Sesión'
+                    title='Crear'
                     button
                     onPress={createAccount}
-                    style={{ backgroundColor: '#3b5998' }}
+                    style={{ backgroundColor: '#3b5998', marginTop: 20 }}
                     color="blue"
                 />
-                <View style={{ display: 'flex' }}>
+                <View style={{ display: 'flex', marginTop: 20 }}>
                     <Text style={styles.sincuenta}>Ya tienes una cuenta?</Text>
-                    <TouchableOpacity onPress={() => { console.log("CREAR CUENTA!"); }}>
+                    <TouchableOpacity onPress={returnLogin}>
                         <Text style={styles.forgot}>Iniciar Sessión</Text>
                     </TouchableOpacity>
                 </View>
 
+                <View style={{ marginTop: 50 }}>
+                    <Separator />
+                </View>
+
+                <View style={{ marginTop: -85 }}>
+                    <SocialNetworks
+                        googleLogin={googleLogin} />
+                </View>
             </View>
         </>
     );
 }
 
-export default FormComponent;
+export default CreateAccountTemplate;

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Dimensions, ImageBackground, Image, TouchableOpacity, Pressable, ActivityIndicator } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image } from 'react-native';
 import { GoogleSignin, statusCodes, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import variables from './src/utis/variables';
 import { styles } from './src/utis/styles';
@@ -8,12 +8,15 @@ import LoginComponent from './src/components/login/logout.component';
 import { auth } from './src/utis/firebase';
 import SocialNetworks from './src/components/login/social.networks.component';
 import Separator from './src/components/generic/separator.component';
+import CreateAccountTemplate from './src/components/login/create.account.component';
 
 const HomeScreen = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [error, setError] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCreateAccount, setIsCreateAccount] = useState(false);
+  const [error, setError] = useState(null);
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
@@ -50,7 +53,7 @@ const HomeScreen = ({ navigation }) => {
       setIsLoggedIn(false)
       await GoogleSignin.revokeAccess()
       await GoogleSignin.signOut()
-      
+
     } catch (error) {
       console.log('Something else went wrong... ', error.toString())
     }
@@ -68,23 +71,53 @@ const HomeScreen = ({ navigation }) => {
         .catch((e) => {
           console.log(e);
         });
-
-
-
     } catch (error) {
       console.log('Something else went wrong... ', error.toString())
     }
   }
 
-  if (isLoggedIn == !true) {
+
+  async function createAccount() {
+    console.log("CREATE ACCOUNT, usuario " + username + " email " + email + " pass " + password);
+
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        setUsuario(userCredential);
+        setIsLoggedIn(true);
+        setIsCreateAccount(false);
+      })
+      .catch((error) => {
+        console.log('Something else went wrong... ', error.toString())
+      });
+
+  }
+
+  if (isCreateAccount) {
+    return (
+      <CreateAccountTemplate
+        createAccount={createAccount}
+        setIsLoggedIn={setIsLoggedIn}
+        setIsCreateAccount={setIsCreateAccount}
+        googleLogin={googleLogin}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        setEmail={setEmail} />
+    );
+  }
+  else if (isLoggedIn == !true) {
     return (
       <View style={styles.container}>
         <FormComponent
           setUsername={setUsername}
           setPassword={setPassword}
-          logInBase={logInBase} />
+          setIsCreateAccount={setIsCreateAccount}
+          logInBase={logInBase}
+          createAccount={createAccount}
+        />
 
         <Separator />
+
 
         <SocialNetworks
           googleLogin={googleLogin} />

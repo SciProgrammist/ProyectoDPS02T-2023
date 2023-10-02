@@ -9,6 +9,13 @@ export const styles = StyleSheet.create({
     color: '#000',
     textAlign: 'center',
   },
+  createAccountText: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#000',
+    textAlign: 'center',
+    marginTop: 70,
+  },
   forgot: {
     fontSize: 14,
     color: '#2098F4',
@@ -30,6 +37,15 @@ export const styles = StyleSheet.create({
   },
   viewForm: {
     width: '95%',
+    paddingHorizontal: 0,
+    borderRadius: 20,
+    height: 300,
+    justifyContent: 'center',
+    margin: 'auto'
+  },
+  createAccount: {
+    width: '95%',
+    marginTop: 150,
     paddingHorizontal: 0,
     borderRadius: 20,
     height: 300,

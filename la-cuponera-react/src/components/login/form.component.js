@@ -5,8 +5,13 @@ import { Button, SocialIcon } from 'react-native-elements'
 import ForgotPassword from './forgot.component';
 
 function FormComponent(props) {
-    const { setUsername, setPassword } = props;
+    const { setUsername, setPassword, setIsCreateAccount } = props;
     const { logInBase } = props;
+
+    function createAccountFunction() {
+        console.log("CREAR CUENTA!");
+        setIsCreateAccount(true);
+    }
 
     return (
         <>
@@ -26,7 +31,7 @@ function FormComponent(props) {
                     style={styles.input}
                     onChange={(e) => setPassword(e.nativeEvent.text)}
                 />
-               <ForgotPassword/>
+                <ForgotPassword />
 
                 <SocialIcon
                     title='Iniciar Sesión'
@@ -37,7 +42,7 @@ function FormComponent(props) {
                 />
                 <View style={{ display: 'flex' }}>
                     <Text style={styles.sincuenta}>No tienes una cuenta?</Text>
-                    <TouchableOpacity onPress={() => { console.log("CREAR CUENTA!"); }}>
+                    <TouchableOpacity onPress={createAccountFunction}>
                         <Text style={styles.forgot}>Crear cuenta</Text>
                     </TouchableOpacity>
                 </View>
