@@ -9,6 +9,10 @@ import { auth } from './src/utis/firebase';
 import SocialNetworks from './src/components/login/social.networks.component';
 import Separator from './src/components/generic/separator.component';
 import CreateAccountTemplate from './src/components/login/create.account.component';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomePage from './src/components/generic/home.component';
+import SettingPage from './src/components/generic/setting.component';
 
 const HomeScreen = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
@@ -18,13 +22,24 @@ const HomeScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const Tab = createBottomTabNavigator();
+  
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: variables.WEBCLIENTID,
       offlineAccess: false
     })
   }, [usuario, isLoggedIn])
+
+
+  function MyTabs() {
+    return (
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomePage} initialParams={usuario} />
+        <Tab.Screen name="Settings" component={SettingPage} />
+      </Tab.Navigator>
+    );
+  }
 
 
   const googleLogin = async () => {
@@ -126,10 +141,13 @@ const HomeScreen = ({ navigation }) => {
     );
   } else {
     return (
-      <View>
-        <Text>Bienvenido {(usuario.givenName == null) ? usuario.user.email : usuario.givenName} </Text>
-        <LoginComponent signOut={signOut} />
-      </View>);
+      <NavigationContainer>
+        <MyTabs />
+        <View>
+          <Text>Bienvenido {(usuario.givenName == null) ? usuario.user.email : usuario.givenName} </Text>
+          <LoginComponent signOut={signOut} />
+        </View>
+      </NavigationContainer>);
   }
 
 }
