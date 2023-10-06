@@ -30,8 +30,8 @@ Antes de comenzar, asegurese de tener instaldo:
 
 * **Daniel Alexande Reyes Pineda** - **PO, SCRUM Master, desarrollador**
 * *Carlos Eduardo Peñate Salazar** - **desarrollador**
-* *Antonio José Caballero Bonilla - QA y desarrollador
-* *Oscar Alexander Bonilla Sorto - QA y desarrollador
+* Antonio José Caballero Bonilla - QA y desarrollador
+* Oscar Alexander Bonilla Sorto - QA y desarrollador
 
 ## Licencia 📄
 
