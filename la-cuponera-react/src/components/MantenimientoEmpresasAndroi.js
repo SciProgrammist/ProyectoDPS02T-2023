@@ -1,439 +1,53 @@
 import React, { useState } from "react";
-import {StyleSheet, View, Text, Image,TextInput,TouchableOpacity, Button, FlatList} from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Button, FlatList } from "react-native";
 import Cupones from '../utis/cupones.json'
+import { styles } from "../utis/styles.mantenimiento"
 
 const MantenimientoEmpresasAndroi = () => {
-  	const [cupones,setcupones]=useState(Cupones);
-	  const [buscado,setbuscado]=useState('');
+	const [cupones, setcupones] = useState(Cupones);
+	const [buscado, setbuscado] = useState('');
 
-	const buscar = () =>{
-		if(!buscado)
-		{
+	const buscar = () => {
+		if (!buscado) {
 			setcupones(Cupones);
-		}else{
-		const encontrado = cupones.filter(item=>item.Nombre.includes(buscado));
-		setcupones(encontrado);
+		} else {
+			const encontrado = cupones.filter(item => item.Nombre.includes(buscado));
+			setcupones(encontrado);
 		}
 	}
-	
-  	return (
-		
-    		<View style={styles.mantenimientoEmpresasAndroi1}>
 
-      		
-                <TextInput onChangeText={(txt)=>setbuscado(txt)} placeholder="Buscar Empresa" style={[styles.buscarEmpresa]}/>
+	return (
+		<View style={styles.mantenimientoEmpresasAndroi1}>
+			<TextInput onChangeText={(txt) => setbuscado(txt)} placeholder="Buscar Empresa" style={[styles.buscarEmpresa]} />
+			<View />
+			<TouchableOpacity onPress={buscar} style={styles.rectangleView}>
+				<Text style={[styles.buscarPosition, styles.buscar]}>Buscar</Text>
+			</TouchableOpacity>
+			<Image style={[styles.searchIcon1, styles.iconLayout]} resizeMode="cover" source="search.png" />
+			<View style={[styles.sideNavigationItem1, styles.itemBg]}>
+				<Text style={[styles.home, styles.homeTypo]}>Home</Text>
+				<Image style={[styles.homeIcon1, styles.homePosition]} resizeMode="cover" source="home.png" />
+				<Image style={styles.chevronRightIcon1} resizeMode="cover" source="chevron-right.png" />
+			</View>
 
-      			<View/>
-                <TouchableOpacity onPress={buscar} style={styles.rectangleView}>
-                    <Text style={[styles.buscarPosition,styles.buscar]}>Buscar</Text>
-                </TouchableOpacity>
-      			<Image style={[styles.searchIcon1, styles.iconLayout]} resizeMode="cover" source="search.png" />
-      			<View style={[styles.sideNavigationItem1, styles.itemBg]}>
-        				<Text style={[styles.home, styles.homeTypo]}>Home</Text>
-        				<Image style={[styles.homeIcon1, styles.homePosition]} resizeMode="cover" source="home.png" />
-        				<Image style={styles.chevronRightIcon1} resizeMode="cover" source="chevron-right.png" />
-      			</View>
+			<Text style={[styles.estado, styles.buscarClr]}>Estado</Text>
+			<Text style={[styles.nombreEmpresa, styles.buscarClr]}>Nombre Empresa</Text>
+			<View style={styles.contenedor}>
+				<FlatList data={cupones}
+					renderItem={({ item }) => (
+						<View>
+							<View style={styles.transactionNameParent}>
+								<Text style={[styles.transactionName, styles.homeTypo]}>{item.Nombre}</Text>
+								<Text style={[styles.yesterday1249Pm, styles.text10Typo]}>Cupones Activos {item["Cupones activos"]}</Text>
+							</View>
+							<Text style={[styles.text10, styles.text10Typo]}>{item.Estado}</Text>
+						</View>
+					)}
+				/>
+			</View>
+		</View>
 
-				  <Text style={[styles.estado, styles.buscarClr]}>Estado</Text>
-      			<Text style={[styles.nombreEmpresa, styles.buscarClr]}>Nombre Empresa</Text>
-<View style={styles.contenedor}>
-<FlatList data={cupones} 
-renderItem={({item})=>(
-<View>
-        				<View style={styles.transactionNameParent}>
-          					<Text style={[styles.transactionName, styles.homeTypo]}>{item.Nombre}</Text>
-          					<Text style={[styles.yesterday1249Pm, styles.text10Typo]}>Cupones Activos {item["Cupones activos"]}</Text>
-        				</View>
-        				<Text style={[styles.text10, styles.text10Typo]}>{item.Estado}</Text>
-      			
-</View>						
-
-)}
-/>
-</View>
-</View>
-      			
-    		);
+	);
 };
-
-const styles = StyleSheet.create({
-  	sideNavigationItem1Position: {
-    		top: 0,
-    		position: "absolute"
-  	},
-  	crearTypo: {
-    		color: "rgba(255, 255, 255, 0.9)",
-    		
-    		fontWeight: "600",
-    		fontSize: 14
-  	},
-  	buscarClr: {
-    		color: "rgba(0, 0, 0, 0.7)",
-    		
-  	},
-  	lineViewBorder: {
-    		borderStyle: "solid",
-    		position: "absolute"
-  	},
-  	buscarPosition: {
-    		textAlign: "left",
-    		position: "absolute",
-            
-  	},
-  	iconLayout: {
-    		height: 24,
-    		width: 24,
-    		overflow: "hidden"
-  	},
-  	itemBg: {
-    		backgroundColor: "#eef1f4",
-    		overflow: "hidden"
-  	},
-  	homeTypo: {
-    		color: "#545f71",
-    		lineHeight: 22,
-    		letterSpacing: -0.3,
-    		fontSize: 16,
-    		textAlign: "left"
-  	},
-  	homePosition: {
-    		top: "50%",
-    		position: "absolute"
-  	},
-  	transactionItemLayout: {
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4",
-    		borderStyle: "solid",
-    		position: "absolute",
-    		overflow: "hidden",
-    		backgroundColor: "#fff"
-  	},
-  	text10Typo: {
-    		
-    		color: "#545f71",
-    		lineHeight: 22,
-    		letterSpacing: -0.3,
-    		fontSize: 16
-  	},
-  	imageIconPosition2: {
-    		left: 30,
-    		height: 24,
-    		width: 24,
-    		position: "absolute",
-    		overflow: "hidden"
-  	},
-  	transactionItemPosition1: {
-    		left: 6,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4",
-    		borderStyle: "solid",
-    		position: "absolute",
-    		overflow: "hidden",
-    		backgroundColor: "#fff"
-  	},
-  	transactionItemPosition: {
-    		left: 7,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4",
-    		borderStyle: "solid",
-    		position: "absolute",
-    		overflow: "hidden",
-    		backgroundColor: "#fff"
-  	},
-  	imageIconPosition1: {
-    		left: 32,
-    		height: 24,
-    		width: 24,
-    		position: "absolute",
-    		overflow: "hidden"
-  	},
-  	imageIconPosition: {
-    		left: 31,
-    		height: 24,
-    		width: 24,
-    		position: "absolute",
-    		overflow: "hidden"
-  	},
-  	mantenimientoEmpresasAndroiChild: {
-    		left: 0,
-    		backgroundColor: "rgba(217, 217, 217, 0.02)",
-    		width: 360,
-    		height: 800
-  	},
-  	iniciarSesinCon1: {
-    		top: 696,
-    		left: 95,
-    		textAlign: "left",
-    		position: "absolute"
-  	},
-  	crear: {
-    		top: 536,
-    		left: 160,
-    		textAlign: "left",
-    		position: "absolute"
-  	},
-  	buscarCuponesPor1: {
-    		top: 203,
-    		left: 44,
-    		fontSize: 12,
-    		
-    		textAlign: "left",
-    		position: "absolute"
-  	},
-  	mantenimientoEmpresasAndroiInner: {
-    		left: 14,
-    		borderRadius: 10,
-    		backgroundColor: "rgba(255, 255, 255, 0.08)",
-    		borderColor: "rgba(0, 0, 0, 0.4)",
-    		borderWidth: 1,
-    		width: 216,
-    		height: 49,
-    		top: 75
-  	},
-  	buscarEmpresa: {
-        position:'absolute',
-        borderRadius: 10,
-        backgroundColor: "rgba(255, 255, 255, 0.08)",
-        borderStyle: "solid",
-        borderColor: "rgba(0, 0, 0, 0.4)",
-        borderWidth: 1,
-        width: 210,
-        height: 49,
-        left:15,
-        top:76,
-  	},
-  	rectangleView: {
-    		left: 239,
-    		borderRadius: 5,
-    		backgroundColor: "#0e64d2",
-    		width: 110,
-    		height: 48,
-    		top: 75,
-    		position: "absolute"
-  	},
-  	buscar: {
-    		left: 34,
-            top:10,
-    		color: "rgba(255, 255, 255, 0.9)",
-    		
-    		fontWeight: "600",
-    		fontSize: 14,
-  	},
-  	searchIcon1: {
-    		top: 87,
-    		left: 310,
-    		position: "absolute"
-  	},
-  	home: {
-    		marginTop: -10,
-    		left: 64,
-    		
-    		top: "50%",
-    		position: "absolute",
-    		fontWeight: "600",
-    		color: "#545f71",
-    		lineHeight: 22,
-    		letterSpacing: -0.3,
-    		fontSize: 16
-  	},
-  	homeIcon1: {
-    		marginTop: -12,
-    		left: 16,
-    		height: 24,
-    		width: 24,
-    		overflow: "hidden"
-  	},
-  	chevronRightIcon1: {
-    		top: 16,
-    		right: 8,
-    		width: 20,
-    		height: 20,
-    		position: "absolute",
-    		overflow: "hidden"
-  	},
-  	sideNavigationItem1: {
-    		left: -7,
-    		borderRadius: 8,
-    		width: 367,
-    		height: 52,
-    		top: 0,
-    		position: "absolute"
-  	},
-  	transactionItemChild: {
-    		borderRadius: 72,
-    		width: 48,
-    		height: 48
-  	},
-  	transactionName: {
-    		fontWeight: "700",
-    		
-  	},
-  	yesterday1249Pm: {
-    		marginTop: 2,
-    		textAlign: "left"
-  	},
-  	transactionNameParent: {
-    		marginLeft: 16,
-    		flex: 1
-  	},
-  	text10: {
-		    
-    		left:265,
-			top:-46,
-    		marginLeft: 16
-  	},
-  	transactionItem: {
-    		top: 174,
-    		left: 5,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4"
-  	},
-  	transactionItem1: {
-    		top: 238,
-    		left: 5,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4"
-  	},
-  	imageUserIcon10: {
-    		top: 252
-  	},
-  	imageUserIcon11: {
-    		top: 188
-  	},
-  	lineView: {
-    		top: 138,
-    		left: 17,
-    		borderColor: "#9ba5b7",
-    		borderTopWidth: 1,
-    		width: 326,
-    		height: 1
-  	},
-  	estado: {
-    		top: 147,
-    		left: 280,
-    		textAlign: "left",
-    		
-    		fontSize: 14,
-    		position: "absolute"
-  	},
-  	nombreEmpresa: {
-    		top: 146,
-    		left: 26,
-    		textAlign: "left",
-    		
-    		fontSize: 14,
-    		position: "absolute"
-  	},
-  	transactionItem2: {
-    		top: 296
-  	},
-  	transactionItem3: {
-    		top: 354
-  	},
-  	transactionItem4: {
-    		top: 415,
-    		left: 5,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4"
-  	},
-  	transactionItem5: {
-    		top: 473,
-    		left: 5,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4"
-  	},
-  	transactionItem6: {
-    		top: 528,
-    		left: 5,
-    		padding: 12,
-    		alignItems: "center",
-    		flexDirection: "row",
-    		height: 58,
-    		width: 337,
-    		borderBottomWidth: 1,
-    		borderColor: "#eef1f4"
-  	},
-  	transactionItem7: {
-    		top: 581
-  	},
-  	transactionItem8: {
-    		top: 639
-  	},
-  	transactionItem9: {
-    		top: 692,
-    		left: 8
-  	},
-  	imageUserIcon12: {
-    		top: 711
-  	},
-  	imageUserIcon13: {
-    		top: 657
-  	},
-  	imageUserIcon14: {
-    		top: 599
-  	},
-  	imageUserIcon15: {
-    		top: 546
-  	},
-  	imageUserIcon16: {
-    		top: 491
-  	},
-  	imageUserIcon17: {
-    		top: 432
-  	},
-  	imageUserIcon18: {
-    		top: 314
-  	},
-  	imageUserIcon19: {
-    		top: 372
-  	},
-  	mantenimientoEmpresasAndroi1: {
-    		width: "100%",
-    		overflow: "hidden",
-    		height: 800,
-    		flex: 1,
-    		backgroundColor: "#fff"
-  	},
-	contenedor:{
-		alignContent:'center',
-		top:200,
-		height:550,
-	}
-});
 
 export default MantenimientoEmpresasAndroi;
