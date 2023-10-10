@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
 import { GoogleSignin, statusCodes, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import variables from './src/utis/variables';
 import { styles } from './src/utis/styles';
@@ -13,8 +12,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from './src/components/generic/home.component';
 import SettingPage from './src/components/generic/setting.component';
+import SplashScreen from './src/components/SplashScreen';
+import HomeScreen from './src/components/HomeScreen';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, Text, Image, Pressable, TouchableOpacity } from "react-native";
+import MantenimientoEmpresasAndroi from './src/components/MantenimientoEmpresasAndroi';
 
-const HomeScreen = ({ navigation }) => {
+const AppMain = ({ navigation }) => {
   const [usuario, setUsuario] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isCreateAccount, setIsCreateAccount] = useState(false);
@@ -23,8 +27,15 @@ const HomeScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const Tab = createBottomTabNavigator();
-  
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
+
   useEffect(() => {
+    const splashTimer = setTimeout(() => {
+      setIsSplashVisible(false);
+    }, 3000);
+
+    return () => clearTimeout(splashTimer);
+
     GoogleSignin.configure({
       webClientId: variables.WEBCLIENTID,
       offlineAccess: false
@@ -32,11 +43,18 @@ const HomeScreen = ({ navigation }) => {
   }, [usuario, isLoggedIn])
 
 
+
+  const navigateToHome = () => {
+    setIsSplashVisible(false);
+  };
+
   function MyTabs() {
     return (
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomePage} initialParams={usuario} />
+        <Tab.Screen name="Home" Image="" component={HomePage} initialParams={usuario} />
+        <Tab.Screen name="ModalCompra" component={HomeScreen}/>
         <Tab.Screen name="Settings" component={SettingPage} />
+        <Tab.Screen name="Empresas" component={MantenimientoEmpresasAndroi} />
       </Tab.Navigator>
     );
   }
@@ -122,23 +140,23 @@ const HomeScreen = ({ navigation }) => {
   }
   else if (isLoggedIn == !true) {
     return (
-      <View style={styles.container}>
-        <FormComponent
-          setUsername={setUsername}
-          setPassword={setPassword}
-          setIsCreateAccount={setIsCreateAccount}
-          logInBase={logInBase}
-          createAccount={createAccount}
-        />
-
-        <Separator />
-
-
-        <SocialNetworks
-          googleLogin={googleLogin} />
-
-      </View>
+      isSplashVisible ? <SplashScreen navigation={navigateToHome} /> :
+        (
+          <View style={styles.container}>
+            <FormComponent
+              setUsername={setUsername}
+              setPassword={setPassword}
+              setIsCreateAccount={setIsCreateAccount}
+              logInBase={logInBase}
+              createAccount={createAccount}
+            />
+            <Separator />
+            <SocialNetworks
+              googleLogin={googleLogin} />
+          </View>
+        )
     );
+
   } else {
     return (
       <NavigationContainer>
@@ -153,4 +171,4 @@ const HomeScreen = ({ navigation }) => {
 }
 
 
-export default HomeScreen;
+export default AppMain;

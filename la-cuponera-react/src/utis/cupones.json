@@ -1,0 +1,56 @@
+[
+    {
+        "Nombre": "Empresa 1",
+        "Cupones activos": 5,
+        "Estado": "activo",
+        "ID": "12345"
+    },
+    {
+        "Nombre": "Empresa 2",
+        "Cupones activos": 3,
+        "Estado": "inactivo",
+        "ID": "67890"
+    },
+    {
+        "Nombre": "Empresa 3",
+        "Cupones activos": 7,
+        "Estado": "activo",
+        "ID": "54321"
+    },
+    {
+        "Nombre": "Empresa 4",
+        "Cupones activos": 2,
+        "Estado": "inactivo",
+        "ID": "98765"
+    },
+    {
+        "Nombre": "Empresa 5",
+        "Cupones activos": 6,
+        "Estado": "activo",
+        "ID": "45678"
+    },
+    {
+        "Nombre": "Empresa 6",
+        "Cupones activos": 1,
+        "Estado": "inactivo",
+        "ID": "23456"
+    },
+    {
+        "Nombre": "Empresa 7",
+        "Cupones activos": 4,
+        "Estado": "activo",
+        "ID": "87654"
+    },
+    {
+        "Nombre": "Empresa 8",
+        "Cupones activos": 8,
+        "Estado": "activo",
+        "ID": "34567"
+    },
+    {
+        "Nombre": "Empresa 9",
+        "Cupones activos": 15,
+        "Estado": "activo",
+        "ID": "34563"
+    }
+]
