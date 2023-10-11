@@ -232,7 +232,7 @@ const ConfirmacinDeCompraAndroi = () => {
                     </Text>
                   </View>
                   <View style={[styles.button3, styles.buttonSpaceBlock]}>
-                    <Text style={[styles.label, styles.labelTypo]}>
+                    <Text style={[styles.label, styles.youAreAbout1]}>
                       Place a bid
                     </Text>
                   </View>
@@ -250,7 +250,7 @@ const ConfirmacinDeCompraAndroi = () => {
         <View style={[styles.modal1, styles.modalShadowBox]}>
           <View style={styles.modalTitle}>
             <Text style={[styles.folowSteps, styles.yourBidTypo]}>
-              Confirmar cupon
+              Confirmar Cupón
             </Text>
             <View style={[styles.share, styles.shareSpaceBlock]}>
               <Image
@@ -265,13 +265,13 @@ const ConfirmacinDeCompraAndroi = () => {
          
           
           <Text
-            style={[styles.youSpaceBlock]}
+            style={[styles.youAreAbout1, styles.youSpaceBlockt1]}
           >{`
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare, magna sit amet pulvinar euismod, odio nisl hendrerit magna, sit amet convallis lacus risus vitae tortor. `}</Text>
-          <View style={styles.youSpaceBlock}>
+          <View style={styles.youSpaceBlockt}>
             <View style={styles.yourBidWrapper}>
               <Text style={[styles.yourBid, styles.yourBidTypo]}>
-                cupones selecciones
+                Cupones Seleccionados
               </Text>
             </View>
             <View style={styles.amountsSpaceBlock}>
@@ -283,20 +283,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit a
                   Lorem ipsum dolor sit
                 </Text>
               </View>
-              <View style={[styles.divider, styles.dividerSpaceBlock]} />
-              <View style={[styles.balance, styles.dividerSpaceBlock]}>
+              <View style={[styles.divider, styles.dividerSpaceBlockb]} />
+              <View style={[styles.balance, styles.dividerSpaceBlockb]}>
                 <Text style={[styles.yourBalance, styles.enterBidTypo]}>
                   cantidad
                 </Text>
                 <Text style={[styles.eth1, styles.ethTypo]}>{`1 `}</Text>
               </View>
-              <View style={[styles.balance, styles.dividerSpaceBlock]}>
+              <View style={[styles.balance, styles.dividerSpaceBlockb]}>
                 <Text style={[styles.yourBalance, styles.enterBidTypo]}>
                   descuento
                 </Text>
                 <Text style={[styles.eth1, styles.ethTypo]}>30% OFF</Text>
               </View>
-              <View style={[styles.balance, styles.dividerSpaceBlock]}>
+              <View style={[styles.balance, styles.dividerSpaceBlockb]}>
                 <Text style={[styles.yourBalance, styles.enterBidTypo]}>
                   fecha de compra
                 </Text>
@@ -304,7 +304,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit a
               </View>
             </View>
           </View>
-          <View style={styles.youSpaceBlock}>
+          <View style={styles.youSpaceBlockb}>
             <View style={[styles.button, styles.buttonSpaceBlock]}>
               <Text style={[styles.label, styles.labelTypo]}>Confirmar</Text>
             </View>
@@ -393,6 +393,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   youSpaceBlock: {
+    marginTop: 150,
+    alignSelf: "stretch",
+    textAlign: "justify",
+  },
+  youSpaceBlockt1: {
+    marginTop: 100,
+    alignSelf: "stretch",
+    textAlign: "justify",
+  },
+  youSpaceBlockt: {
+    marginTop: 15,
+    alignSelf: "stretch",
+    textAlign: "justify",
+  },
+  youSpaceBlockb: {
     marginTop: 50,
     alignSelf: "stretch",
     textAlign: "justify",
@@ -410,7 +425,11 @@ const styles = StyleSheet.create({
     fontSize: FontSize.body2Bold_size,
   },
   dividerSpaceBlock: {
-    marginTop: 12,
+    marginTop: 16,
+    alignSelf: "stretch",
+  },
+  dividerSpaceBlockb: {
+    marginTop: 13,
     alignSelf: "stretch",
   },
   buttonSpaceBlock: {
@@ -503,8 +522,8 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
   checkCircleIcon: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
     overflow: "hidden",
   },
   title: {
@@ -559,6 +578,7 @@ const styles = StyleSheet.create({
     color: Color.neutrals2,
     textAlign: "left",
     flex: 1,
+    marginTop: 40,
   },
   share: {
     borderWidth: 2,
@@ -569,6 +589,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     overflow: "hidden",
+    marginTop: 40,
   },
   modalTitle: {
     alignSelf: "stretch",
@@ -870,7 +891,7 @@ const styles = StyleSheet.create({
     //textAlign: "left",
     color: Color.neutrals2,
     fontSize: FontSize.body2Bold_size,
-    marginTop: 50,
+    //marginBottom: -30,
   },
   eth6: {
     fontFamily: FontFamily.body2,
@@ -902,11 +923,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   photographIcon: {
-    marginTop:-60,
+    marginTop:-80,
     top: 189,
     left: 80,
     width: 200,
-    height: 64,
+    height: 90,
     overflow: "hidden",
   },
   confirmacinDeCompraAndroi: {
