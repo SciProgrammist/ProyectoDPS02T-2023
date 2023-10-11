@@ -408,7 +408,7 @@ const styles = StyleSheet.create({
     textAlign: "justify",
   },
   youSpaceBlockb: {
-    marginTop: 50,
+    marginTop: 25,
     alignSelf: "stretch",
     textAlign: "justify",
   },
@@ -578,7 +578,7 @@ const styles = StyleSheet.create({
     color: Color.neutrals2,
     textAlign: "left",
     flex: 1,
-    marginTop: 40,
+    marginTop: 1,
   },
   share: {
     borderWidth: 2,
@@ -589,7 +589,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     overflow: "hidden",
-    marginTop: 40,
+    marginTop: 1,
   },
   modalTitle: {
     alignSelf: "stretch",
