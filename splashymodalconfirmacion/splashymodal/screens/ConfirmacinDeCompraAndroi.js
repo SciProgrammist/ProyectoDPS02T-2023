@@ -256,13 +256,17 @@ const ConfirmacinDeCompraAndroi = () => {
               <Image
                 style={styles.checkCircleIcon}
                 contentFit="cover"
+                source={require("../assets/iconscloseline@3x.png")}
              
               />
             </View>
           </View>
+
+         
+          
           <Text
-            style={[styles.youAreAbout1, styles.youSpaceBlock]}
-          >{`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare, magna sit
+            style={[styles.youSpaceBlock]}
+          >{`
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare, magna sit amet pulvinar euismod, odio nisl hendrerit magna, sit amet convallis lacus risus vitae tortor. `}</Text>
           <View style={styles.youSpaceBlock}>
             <View style={styles.yourBidWrapper}>
@@ -318,8 +322,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit a
         </View>
       </View>
       <Image
-        style={[styles.photographIcon, styles.screenTitlePosition]}
+        style={[styles.photographIcon]}
         contentFit="cover"
+        source={require("../assets/photo.png")}
       
       />
     </View>
@@ -388,8 +393,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   youSpaceBlock: {
-    marginTop: 32,
+    marginTop: 50,
     alignSelf: "stretch",
+    textAlign: "justify",
   },
   enterBidTypo: {
     color: Color.neutrals4,
@@ -861,10 +867,10 @@ const styles = StyleSheet.create({
   youAreAbout1: {
     fontFamily: FontFamily.body2,
     lineHeight: 24,
-    textAlign: "left",
+    //textAlign: "left",
     color: Color.neutrals2,
     fontSize: FontSize.body2Bold_size,
-    marginTop: 32,
+    marginTop: 50,
   },
   eth6: {
     fontFamily: FontFamily.body2,
@@ -896,10 +902,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   photographIcon: {
-    marginLeft: -20,
-    top: 149,
-    width: 32,
-    height: 32,
+    marginTop:-60,
+    top: 189,
+    left: 80,
+    width: 200,
+    height: 64,
     overflow: "hidden",
   },
   confirmacinDeCompraAndroi: {
