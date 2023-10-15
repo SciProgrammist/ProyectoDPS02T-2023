@@ -14,7 +14,7 @@ const SplashScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Image
-        source={{ uri: 'https://png.pngtree.com/thumb_back/fw800/back_our/20190614/ourmid/pngtree-voucher-background-design-material-image_122758.jpg' }} 
+       source={require("../assets/fondofinal.png")}
         style={{ width: 400, height: 800 }} // Ajusta el tamaño según sea necesario
       />
       <Text>Splash Screen</Text>
