@@ -47,6 +47,10 @@ const AppMain = ({ navigation }) => {
         setIsSplashVisible(false);
     };
 
+    const SettingComponent = props => (
+        <SettingPage signOut={signOut} {...props} />
+      );
+
     function MyTabs() {
         return (
             <Tab.Navigator>
@@ -55,7 +59,7 @@ const AppMain = ({ navigation }) => {
                         title: 'HomeCupones',
                         activeTintColor: 'white',
                         inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: ({ size, focused, color }) => {
+                        tabBarIcon: () => {
                             return (
                                 <Image style={{ width: 25, height: 25 }}
                                     source={require('./src/img/cupon.png')} />
@@ -68,7 +72,7 @@ const AppMain = ({ navigation }) => {
                         title: 'Home',
                         activeTintColor: 'white',
                         inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: ({ size, focused, color }) => {
+                        tabBarIcon: () => {
                             return (
                                 <Image style={{ width: 25, height: 25 }}
                                     source={require('./src/img/home.png')} />
@@ -81,7 +85,7 @@ const AppMain = ({ navigation }) => {
                         title: 'Cupones',
                         activeTintColor: 'white',
                         inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: ({ size, focused, color }) => {
+                        tabBarIcon: () => {
                             return (
                                 <Image style={{ width: 25, height: 25 }}
                                     source={require('./src/img/cupon.png')} />
@@ -94,21 +98,21 @@ const AppMain = ({ navigation }) => {
                         title: 'Settings',
                         activeTintColor: 'white',
                         inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: ({ size, focused, color }) => {
+                        tabBarIcon: () => {
                             return (
                                 <Image style={{ width: 25, height: 25 }}
                                     source={require('./src/img/confimg.png')} />
                             );
                         },
                     }}
-                    component={() => <SettingPage signOut={signOut} />}
+                    component={SettingComponent}
                 />
                 <Tab.Screen name="Empresas"
                     options={{
                         title: 'Empresas',
                         activeTintColor: 'white',
                         inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: ({ size, focused, color }) => {
+                        tabBarIcon: () => {
                             return (
                                 <Image style={{ width: 25, height: 25 }}
                                     source={require('./src/img/empresa.png')} />

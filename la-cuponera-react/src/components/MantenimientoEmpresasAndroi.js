@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity, Button, FlatList } from "react-native";
 import Cupones from '../utis/cupones.json'
 import { styles } from "../utis/styles.mantenimiento"
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const MantenimientoEmpresasAndroi = () => {
 	const [cupones, setcupones] = useState(Cupones);
@@ -20,14 +21,16 @@ const MantenimientoEmpresasAndroi = () => {
 		<View style={styles.mantenimientoEmpresasAndroi1}>
 			<TextInput onChangeText={(txt) => setbuscado(txt)} placeholder="Buscar Empresa" style={[styles.buscarEmpresa]} />
 			<View />
-			<TouchableOpacity onPress={buscar} style={styles.rectangleView}>
-				<Text style={[styles.buscarPosition, styles.buscar]}>Buscar</Text>
-			</TouchableOpacity>
-			<Image style={[styles.searchIcon1, styles.iconLayout]} resizeMode="cover" source="search.png" />
-			<View style={[styles.sideNavigationItem1, styles.itemBg]}>
-				<Text style={[styles.home, styles.homeTypo]}>Home</Text>
-				<Image style={[styles.homeIcon1, styles.homePosition]} resizeMode="cover" source="home.png" />
-				<Image style={styles.chevronRightIcon1} resizeMode="cover" source="chevron-right.png" />
+			<View style={styles.container2}>
+				<TouchableOpacity onPress={buscar} style={styles.rectangleView}>
+					<Text style={[styles.buscarPosition, styles.buscar]}>Buscar
+						<MaterialCommunityIcons
+							name={'home-search'}
+							size={24}
+							color="#fff"
+							style={styles.icon2} /></Text>
+				</TouchableOpacity>
+
 			</View>
 
 			<Text style={[styles.estado, styles.buscarClr]}>Estado</Text>
