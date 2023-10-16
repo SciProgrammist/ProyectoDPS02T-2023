@@ -1,7 +1,7 @@
 import { RefreshControlBase } from "react-native";
 import React from 'react';
 import { Text, View, TouchableOpacity, Pressable } from 'react-native';
-import { styles } from "../../utis/styles";
+import { styles } from "../../styles/styles";
 import { Button, SocialIcon } from 'react-native-elements'
 
 export default function SocialNetworks(props) {

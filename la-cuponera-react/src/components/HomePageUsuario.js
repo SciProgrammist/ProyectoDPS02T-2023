@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, Modal } from "react-native";
 import { Image } from "expo-image";
-import { styles } from "./stylesCuponesLista";
+import { styles } from "../styles/stylesCuponesLista";
 import Cupones from '../utis/cupones.home.json'
 import ConfirmacinDeCompraAndroi from "./ConfirmacinDeCompraAndroi";
 

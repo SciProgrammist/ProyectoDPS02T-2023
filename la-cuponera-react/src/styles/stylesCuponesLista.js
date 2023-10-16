@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Border, Color, FontFamily, FontSize } from "../utis/styles.cupones";
+import { Border, Color, FontFamily, FontSize } from "./styles.cupones";
 
 export const styles = StyleSheet.create({
     buscarFlexBox: {

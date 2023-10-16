@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, View, Text, ImageBackground } from "react-native";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { Color, FontFamily, FontSize, Border, Padding } from "../utis/GlobalStyles";
+import { Color, FontFamily, FontSize, Border, Padding } from "../styles/GlobalStyles";
 
 const ConfirmacinDeCompraAndroi = () => {
   return (

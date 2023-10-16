@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styles } from '../../utis/styles';
+import { styles } from '../../styles/styles';
 import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { Button, SocialIcon } from 'react-native-elements'
 import ForgotPassword from './forgot.component';

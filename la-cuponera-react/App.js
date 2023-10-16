@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 import variables from './src/utis/variables';
-import { styles } from './src/utis/styles';
+import { styles } from './src/styles/styles';
 import FormComponent from './src/components/login/form.component';
 import LoginComponent from './src/components/login/logout.component';
 import { auth } from './src/utis/firebase';

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity, Button, FlatList } from "react-native";
 import Cupones from '../utis/cupones.json'
-import { styles } from "../utis/styles.mantenimiento"
+import { styles } from "../styles/styles.mantenimiento"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const MantenimientoEmpresasAndroi = () => {
