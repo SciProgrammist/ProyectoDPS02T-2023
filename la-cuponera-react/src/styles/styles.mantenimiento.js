@@ -5,6 +5,9 @@ export const styles = StyleSheet.create({
 		top: 0,
 		position: "absolute"
 	},
+	icon2: { 
+		marginLeft: 4,
+	},
 	crearTypo: {
 		color: "rgba(255, 255, 255, 0.9)",
 

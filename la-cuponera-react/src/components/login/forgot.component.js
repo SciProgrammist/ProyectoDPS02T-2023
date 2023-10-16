@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { styles } from '../../utis/styles';
+import { styles } from '../../styles/styles';
 import { auth } from '../../utis/firebase';
 import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity, TextInput } from 'react-native';
 

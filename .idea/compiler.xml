@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="lacuponerareact.app" target="12" />
+      <module name="lacuponerareact.expo" target="12" />
+      <module name="lacuponerareact.expo-application" target="12" />
+      <module name="lacuponerareact.expo-constants" target="12" />
+      <module name="lacuponerareact.expo-file-system" target="12" />
+      <module name="lacuponerareact.expo-font" target="12" />
+      <module name="lacuponerareact.expo-keep-awake" target="12" />
+      <module name="lacuponerareact.expo-modules-core" target="12" />
+      <module name="lacuponerareact.expo-modules-core$android-annotation" target="11" />
+      <module name="lacuponerareact.expo-modules-core$android-annotation-processor" target="11" />
+      <module name="lacuponerareact.expo-modules-core$android-annotation-processor.main" target="11" />
+      <module name="lacuponerareact.expo-modules-core$android-annotation-processor.test" target="11" />
+      <module name="lacuponerareact.expo-modules-core$android-annotation.main" target="11" />
+      <module name="lacuponerareact.expo-modules-core$android-annotation.test" target="11" />
+      <module name="lacuponerareact.expo-splash-screen" target="12" />
+      <module name="lacuponerareact.react-native-fbsdk-next" target="12" />
+      <module name="lacuponerareact.react-native-firebase_app" target="12" />
+      <module name="lacuponerareact.react-native-firebase_auth" target="12" />
+      <module name="react-native-gradle-plugin" target="11" />
+      <module name="react-native-gradle-plugin.main" target="11" />
+      <module name="react-native-gradle-plugin.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

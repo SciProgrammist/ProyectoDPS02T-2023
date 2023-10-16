@@ -22,7 +22,7 @@
             <option value="$PROJECT_DIR$/la-cuponera-react/android" />
             <option value="$PROJECT_DIR$/la-cuponera-react/android/app" />
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/@react-native-firebase/app/android" />
-            <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/@react-native-firebase/auth/android" />
+            <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/@react-native-google-signin/google-signin/android" />
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/@react-native/gradle-plugin" />
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/expo-application/android" />
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/expo-constants/android" />
@@ -34,8 +34,8 @@
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/expo-modules-core/android-annotation-processor" />
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/expo-splash-screen/android" />
             <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/expo/android" />
-            <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/react-native-fbsdk-next/android" />
-            <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/react-native-fbsdk/android" />
+            <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/react-native-safe-area-context/android" />
+            <option value="$PROJECT_DIR$/la-cuponera-react/node_modules/react-native-vector-icons/android" />
           </set>
         </option>
       </GradleProjectSettings>

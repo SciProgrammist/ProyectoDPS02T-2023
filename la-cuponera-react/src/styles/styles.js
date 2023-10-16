@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import colors from './colors';
+import colors from '../utis/colors';
 
 export const styles = StyleSheet.create({
 
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     margin: 3,
     textAlign: 'center',
   },
-  sincuenta:{
+  sincuenta: {
     textAlign: 'center',
     fontSize: 14,
     fontWeight: 'bold',
@@ -31,6 +31,11 @@ export const styles = StyleSheet.create({
     paddingTop: 50,
     justifyContent: 'center',
   },
+  container2: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'center',  
+},
   form_input: {
     width: 100,
     fontSize: 12,
@@ -65,6 +70,21 @@ export const styles = StyleSheet.create({
     color: '#000',
     paddingHorizontal: 20,
   },
+  input2: {
+    height: 50,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: colors.PRIMARY_COLOR,
+    borderRadius: 6,
+    marginLeft: 50,
+    width: '80%',
+    marginBottom: 10,
+    color: '#000',
+    paddingHorizontal: 20,
+  },
+  icon: { 
+
+},
   inputReset: {
     height: 50,
     backgroundColor: '#fff',
@@ -72,7 +92,7 @@ export const styles = StyleSheet.create({
     borderColor: colors.PRIMARY_COLOR,
     borderRadius: 6,
     width: '80%',
-    margin:10,
+    margin: 10,
     color: '#000',
     paddingHorizontal: 20,
   },

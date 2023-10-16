@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from '../../utis/styles';
+import { styles } from '../../styles/styles';
 import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { Button, SocialIcon } from 'react-native-elements'
 import Separator from '../generic/separator.component';

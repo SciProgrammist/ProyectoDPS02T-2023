@@ -1,7 +1,7 @@
 import { RefreshControlBase } from "react-native";
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import { styles } from "../../utis/styles";
+import { styles } from "../../styles/styles";
 
 export default function LoginComponent(props) {
     const { signOut } = props;
