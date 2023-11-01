@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 		position: "absolute"
 	},
 	icon2: { 
-		marginLeft: 4,
+		marginLeft: 15,
 	},
 	crearTypo: {
 		color: "rgba(255, 255, 255, 0.9)",
@@ -156,13 +156,22 @@ export const styles = StyleSheet.create({
 		borderStyle: "solid",
 		borderColor: "rgba(0, 0, 0, 0.4)",
 		borderWidth: 1,
-		width: 210,
+		width: 105,
 		height: 49,
 		left: 15,
 		top: 76,
 	},
+	rectangleView2: {
+		left: 250,
+		borderRadius: 5,
+		backgroundColor: "#0e64d2",
+		width: 110,
+		height: 48,
+		top: 75,
+		position: "absolute"
+	},
 	rectangleView: {
-		left: 239,
+		left: 125,
 		borderRadius: 5,
 		backgroundColor: "#0e64d2",
 		width: 110,
@@ -171,7 +180,7 @@ export const styles = StyleSheet.create({
 		position: "absolute"
 	},
 	buscar: {
-		left: 34,
+		left: 20,
 		top: 10,
 		color: "rgba(255, 255, 255, 0.9)",
 

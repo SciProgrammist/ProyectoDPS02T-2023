@@ -1,56 +1,59 @@
-[
-    {
-        "Nombre": "Empresa 1",
-        "Cupones activos": 5,
-        "Estado": "activo",
-        "ID": "12345"
-    },
-    {
-        "Nombre": "Empresa 2",
-        "Cupones activos": 3,
-        "Estado": "inactivo",
-        "ID": "67890"
-    },
-    {
-        "Nombre": "Empresa 3",
-        "Cupones activos": 7,
-        "Estado": "activo",
-        "ID": "54321"
-    },
-    {
-        "Nombre": "Empresa 4",
-        "Cupones activos": 2,
-        "Estado": "inactivo",
-        "ID": "98765"
-    },
-    {
-        "Nombre": "Empresa 5",
-        "Cupones activos": 6,
-        "Estado": "activo",
-        "ID": "45678"
-    },
-    {
-        "Nombre": "Empresa 6",
-        "Cupones activos": 1,
-        "Estado": "inactivo",
-        "ID": "23456"
-    },
-    {
-        "Nombre": "Empresa 7",
-        "Cupones activos": 4,
-        "Estado": "activo",
-        "ID": "87654"
-    },
-    {
-        "Nombre": "Empresa 8",
-        "Cupones activos": 8,
-        "Estado": "activo",
-        "ID": "34567"
-    },
-    {
-        "Nombre": "Empresa 9",
-        "Cupones activos": 15,
-        "Estado": "activo",
-        "ID": "34563"
-    }
-]
+{
+    "empresas": [
+        {
+            "nombre": "Empresa 1",
+            "cantidad": 5,
+            "estado": "activo",
+            "id": "12345"
+        },
+        {
+            "nombre": "Empresa 2",
+            "cantidad": 3,
+            "estado": "inactivo",
+            "id": "67890"
+        },
+        {
+            "nombre": "Empresa 3",
+            "cantidad": 7,
+            "estado": "activo",
+            "id": "54321"
+        },
+        {
+            "nombre": "Empresa 4",
+            "cantidad": 2,
+            "estado": "inactivo",
+            "id": "98765"
+        },
+        {
+            "nombre": "Empresa 5",
+            "cantidad": 6,
+            "estado": "activo",
+            "id": "45678"
+        },
+        {
+            "nombre": "Empresa 6",
+            "cantidad": 1,
+            "estado": "inactivo",
+            "id": "23456"
+        },
+        {
+            "nombre": "Empresa 7",
+            "cantidad": 4,
+            "estado": "activo",
+            "id": "87654"
+        },
+        {
+            "nombre": "Empresa 8",
+            "cantidad": 8,
+            "estado": "activo",
+            "id": "34567"
+        },
+        {
+            "nombre": "Empresa 9",
+            "cantidad": 15,
+            "estado": "activo",
+            "id": "34563"
+        }
+    ]
+    
+}

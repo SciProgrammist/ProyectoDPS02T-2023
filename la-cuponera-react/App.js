@@ -3,7 +3,6 @@ import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-si
 import variables from './src/utis/variables';
 import { styles } from './src/styles/styles';
 import FormComponent from './src/components/login/form.component';
-import LoginComponent from './src/components/login/logout.component';
 import { auth } from './src/utis/firebase';
 import SocialNetworks from './src/components/login/social.networks.component';
 import Separator from './src/components/generic/separator.component';
@@ -14,8 +13,8 @@ import HomePage from './src/components/generic/home.component';
 import SettingPage from './src/components/generic/setting.component';
 import SplashScreen from './src/components/SplashScreen';
 import HomeScreen from './src/components/HomeScreen';
-import { Image, Text, View } from "react-native";
-import MantenimientoEmpresasAndroi from './src/components/MantenimientoEmpresasAndroi';
+import { Image, View } from "react-native";
+import MantenimientoEmpresasAndroi from './src/components/mantenimiento.empresas';
 import HomePageUsuario from "./src/components/HomePageUsuario";
 
 const AppMain = ({ navigation }) => {
