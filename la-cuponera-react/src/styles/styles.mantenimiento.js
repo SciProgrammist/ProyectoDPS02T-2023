@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
-
+import colors
+ from "../utis/colors";
+import { auth } from "../utis/firebase";
 export const styles = StyleSheet.create({
 	sideNavigationItem1Position: {
 		top: 0,
@@ -384,5 +386,50 @@ export const styles = StyleSheet.create({
 		alignContent: 'center',
 		top: 200,
 		height: 550,
-	}
+	},
+
+	//ESTILOS MODAL CREAR EMPRESA
+	centeredView: {
+		justifyContent: 'center',
+		margin: 'auto',
+		width: '80%',
+		height: '100%',
+	  },
+	  modalView: {
+		margin: 5,
+		backgroundColor: 'white',
+		borderRadius: 5,
+		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+		  width: 0,
+		  height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5,
+	  },
+	  button: {
+		backgroundColor: colors.ORANGE,
+		padding: 16,
+		margin: 16,
+		borderRadius: 5,
+		width: '75%',
+	  },
+	  inputReset: {
+		height: 50,
+		backgroundColor: '#fff',
+		borderWidth: 1,
+		borderColor: colors.PRIMARY_COLOR,
+		borderRadius: 6,
+		width: '80%',
+		margin: 10,
+		color: '#000',
+		paddingHorizontal: 20,
+	  },
+	  textStyle: {
+		color: 'white',
+		fontWeight: 'bold',
+		textAlign: 'center',
+	  },
 });

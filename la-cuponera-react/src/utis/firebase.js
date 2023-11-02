@@ -6,7 +6,7 @@ import variables from './variables';
 const firebaseConfig = {
     apiKey: variables.APIKEY,
     authDomain: variables.AUTHDOMAIN,
-    databaseURL: "https://proyecto-dsp-2023-default-rtdb.firebaseio.com"
+    databaseURL: variables.DATABASE
 }
 
 if (!firebase.apps.length) {
