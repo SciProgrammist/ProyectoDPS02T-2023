@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Text, ImageBackground } from "react-native";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { styles } from "../styles/stylesModalCupon";
+import { styles } from "../../styles/stylesModalCupon";
 
 const ConfirmacinDeCompraAndroi = () => {
   return (
@@ -113,7 +113,7 @@ const ConfirmacinDeCompraAndroi = () => {
             <Image
                 style={[styles.blurGradientIcon, styles.blurIconPosition]}
                 contentFit="cover"
-                source={require("../img/gradient.png")}
+                source={require("../../img/gradient.png")}
             />
             <View style={[styles.itemTitle, styles.row3IconLayout]}>
               <View style={[styles.closeModal, styles.closeModalShadowBox]}>
@@ -256,7 +256,7 @@ const ConfirmacinDeCompraAndroi = () => {
                 <Image
                     style={styles.checkCircleIcon}
                     contentFit="cover"
-                    source={require("../img/iconscloseline.png")}
+                    source={require("../../img/iconscloseline.png")}
 
                 />
               </View>
@@ -324,7 +324,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit a
         <Image
             style={[styles.photographIcon]}
             contentFit="cover"
-            source={require("../img/photo.png")}
+            source={require("../../img/photo.png")}
 
         />
       </View>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity, Button, FlatList, Modal } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, FlatList  } from "react-native";
 
-import { styles } from "../styles/styles.mantenimiento"
+import { styles } from "../../styles/styles.mantenimiento"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { database } from "../utis/firebase";
+import { database } from "../../utis/firebase";
+import ModalCreate from "./modal.create.component";
 
 const MantenimientoEmpresasAndroi = () => {
 	//variables para crear una nueva empresa
@@ -15,6 +16,9 @@ const MantenimientoEmpresasAndroi = () => {
 
 	const [cupones, setcupones] = useState();
 	const [buscado, setbuscado] = useState('');
+
+	//modal variables
+	const [modalVisibleEdit, setModalVisibleEdit] = useState(false);
 	const [modalVisible, setModalVisible] = useState(false);
 
 	const [cupon, setCupon] = useState({
@@ -26,7 +30,7 @@ const MantenimientoEmpresasAndroi = () => {
 
 	useEffect(() => {
 		findAll();
-	}, [modalVisible, cupones, nombre, cantidad, id, estado])
+	}, [modalVisible, modalVisibleEdit, cupones, nombre, cantidad, id, estado])
 
 
 	const buscar = () => {
@@ -41,6 +45,11 @@ const MantenimientoEmpresasAndroi = () => {
 	function openModal() {
 		console.log("STARTING PROCESS CREATE EMPRESA...");
 		setModalVisible(true);
+	}
+
+	function openModalEdit() {
+		console.log("STARTING PROCESS UPDATE EMPRESA...");
+		setModalVisibleEdit(true);
 	}
 
 
@@ -95,50 +104,15 @@ const MantenimientoEmpresasAndroi = () => {
 
 	return (
 		<View style={styles.mantenimientoEmpresasAndroi1}>
-			<Modal
-				animationType="slide"
-				transparent={true}
-				visible={modalVisible}
-				onRequestClose={() => {
-					Alert.alert('Modal has been closed.');
-					setModalVisible(!modalVisible);
-				}}>
-				<View style={styles.centeredView}>
-					<View style={styles.modalView}>
-						<Text style={styles.modalText}>Crear nueva Empresa</Text>
-						<TextInput
-							placeholder="Ingrese el id"
-							keyboardType="numeric"
-							style={styles.inputReset}
-							onChange={(e) => setId(e.nativeEvent.text)}
-						/>
-						<TextInput
-							placeholder="Ingrese el nombre"
-							keyboardType="default"
-							style={styles.inputReset}
-							onChange={(e) => setNombre(e.nativeEvent.text)}
-						/>
-						<TextInput
-							placeholder="Ingrese la cantidad de cupones"
-							keyboardType="numeric"
-							style={styles.inputReset}
-							onChange={(e) => setCantidad(e.nativeEvent.text)}
-						/>
-						<TextInput
-							placeholder="Ingrese el estado"
-							keyboardType="default"
-							defaultValue="activo"
-							style={styles.inputReset}
-							onChange={(e) => setEstado(e.nativeEvent.text)}
-						/>
-						<TouchableOpacity
-							style={[styles.button, styles.buttonClose]}
-							onPress={addEmpresa}>
-							<Text style={styles.textStyle}>Enviar</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
-			</Modal>
+			<ModalCreate
+				addEmpresa={addEmpresa}
+				modalVisible={modalVisible}
+				setModalVisible={setModalVisible}
+				setId={setId}
+				setNombre={setNombre}
+				setEstado={setEstado}
+				setCantidad={setCantidad}
+			/>
 			<TextInput onChangeText={(txt) => setbuscado(txt)} placeholder="Buscar Empresa" style={[styles.buscarEmpresa]} />
 			<View />
 			<View style={styles.container2}>
@@ -178,7 +152,7 @@ const MantenimientoEmpresasAndroi = () => {
 							</View>
 							<Text style={[styles.text10, styles.text10Typo]}>{item["estado"]}</Text>
 							<Text style={[styles.text11, styles.text10Typo]}>
-								<TouchableOpacity onPress={() => { ()=> {console.log('editar!');} }} style={styles.rectangleView3}>
+								<TouchableOpacity onPress={() => { () => { console.log('editar!'); } }} style={styles.rectangleView3}>
 									<Text style={[styles.buscarPosition, styles.buscar]}>Edit
 										<MaterialCommunityIcons
 											name={'circle-edit-outline'}

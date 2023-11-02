@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, Modal } from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
-import { styles } from "../styles/stylesCuponesLista";
-import Cupones from '../utis/cupones.home.json'
-import ConfirmacinDeCompraAndroi from "./ConfirmacinDeCompraAndroi";
+import { styles } from "../../styles/stylesCuponesLista";
+import Cupones from '../../utis/cupones.home.json'
+import ModalViewCupones from "./modal.view.component";
 
 const HomePageUsuario = () => {
-    const [cupones, setcupones] = useState(Cupones);
+    const [cupones, setcupones] = useState(Cupones.cupones);
     const [modalVisible, setModalVisible] = useState(false);
 
     function canjearCupon() {
@@ -19,26 +19,11 @@ const HomePageUsuario = () => {
     }
     return (
         <>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    Alert.alert('Modal has been closed.');
-                    setModalVisible(!modalVisible);
-                }}>
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <Text style={styles.modalText}>CANJEAR CUPON</Text>
-                        <ConfirmacinDeCompraAndroi />
-                        <TouchableOpacity
-                            style={[styles.button, styles.buttonClose]}
-                            onPress={cancelar}>
-                            <Text style={styles.button}>cancelar</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </Modal>
+            <ModalViewCupones 
+                    modalVisible={modalVisible}
+                    setModalVisible={setModalVisible}
+                    cancelar={cancelar}
+                />
 
             <View style={styles.homePageUsuario}>
 
@@ -48,14 +33,14 @@ const HomePageUsuario = () => {
                 <Image
                     style={[styles.homePageUsuarioInner, styles.rectangleViewPosition]}
                     contentFit="cover"
-                    source={require("../assets/rectangle-1.png")}
+                    source={require("../../assets/rectangle-1.png")}
                 />
                 <View style={[styles.rectangleView, styles.rectangleViewPosition]} />
                 <Text style={[styles.buscar, styles.buscarFlexBox]}>Buscar</Text>
                 <Image
                     style={[styles.searchIcon, styles.starIconLayout]}
                     contentFit="cover"
-                    source={require("../assets/search.png")}
+                    source={require("../../assets/search.png")}
                 />
                 <View style={styles.contenedor}>
                     <FlatList data={cupones}
@@ -72,33 +57,33 @@ const HomePageUsuario = () => {
                                         <Image
                                             style={styles.starIconLayout}
                                             contentFit="cover"
-                                            source={require("../assets/star1.png")}
+                                            source={require("../../assets/star1.png")}
                                         />
                                         <Image
                                             style={[styles.starIcon1, styles.starIconLayout]}
                                             contentFit="cover"
-                                            source={require("../assets/star1.png")}
+                                            source={require("../../assets/star1.png")}
                                         />
                                         <Image
                                             style={[styles.starIcon1, styles.starIconLayout]}
                                             contentFit="cover"
-                                            source={require("../assets/star2.png")}
+                                            source={require("../../assets/star2.png")}
                                         />
                                         <Image
                                             style={[styles.starIcon1, styles.starIconLayout]}
                                             contentFit="cover"
-                                            source={require("../assets/star2.png")}
+                                            source={require("../../assets/star2.png")}
                                         />
                                         <Image
                                             style={[styles.starIcon1, styles.starIconLayout]}
                                             contentFit="cover"
-                                            source={require("../assets/star2.png")}
+                                            source={require("../../assets/star2.png")}
                                         />
                                     </View>
                                     <Image
                                         style={styles.photographIcon}
                                         contentFit="cover"
-                                        source={require("../assets/photograph.png")}
+                                        source={require("../../assets/photograph.png")}
                                     />
                                 </View>
                             </TouchableOpacity>

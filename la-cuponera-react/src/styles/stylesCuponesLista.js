@@ -220,16 +220,14 @@ export const styles = StyleSheet.create({
 	},
     centeredView: {
         width: '100%',
-        height: 700,
-        margin:'auto',
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: '100%',
+        margin:'auto'
       },
       modalView: {
-        margin: 2,
+        margin: 5,
+        height: '100%',
         backgroundColor: 'white',
         borderRadius: 5,
-        alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
           width: 0,

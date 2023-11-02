@@ -1,22 +1,24 @@
-[
-  {
-    "titulo": "Cupón de Descuento AHORRA20",
-    "descripcion": "¡Aprovecha este cupón para obtener un descuento del 20% en tu próxima compra! No te pierdas la oportunidad de ahorrar en tus productos favoritos.",
-    "descuento": 20
-  },
-  {
-    "titulo": "Oferta Especial COMPRASMAGICAS",
-    "descripcion": "¡Descubre la magia de las compras con este cupón especial! Usa el código COMPRASMAGICAS y recibe un descuento sorpresa en tu carrito de compras.",
-    "descuento": 15
-  },
-  {
-    "titulo": "Descuento Flash RAPIDO25",
-    "descripcion": "¡No pierdas el tiempo! Ingresa el código RAPIDO25 al finalizar tu compra y disfruta de un descuento del 25% en productos seleccionados. ¡La oferta es por tiempo limitado!",
-    "descuento": 25
-  },
-  {
-    "titulo": "Cupón de Cliente VIP EXCLUSIVO30",
-    "descripcion": "Eres un cliente VIP y te mereces lo mejor. Utiliza el cupón EXCLUSIVO30 en tu próxima compra y obtén un exclusivo descuento del 30% como agradecimiento por tu lealtad.",
-    "descuento": 30
-  }
-]
+{
+  "cupones": [
+    {
+      "titulo": "Cupón de Descuento AHORRA20",
+      "descripcion": "¡Aprovecha este cupón para obtener un descuento del 20% en tu próxima compra! No te pierdas la oportunidad de ahorrar en tus productos favoritos.",
+      "descuento": 20
+    },
+    {
+      "titulo": "Oferta Especial COMPRASMAGICAS",
+      "descripcion": "¡Descubre la magia de las compras con este cupón especial! Usa el código COMPRASMAGICAS y recibe un descuento sorpresa en tu carrito de compras.",
+      "descuento": 15
+    },
+    {
+      "titulo": "Descuento Flash RAPIDO25",
+      "descripcion": "¡No pierdas el tiempo! Ingresa el código RAPIDO25 al finalizar tu compra y disfruta de un descuento del 25% en productos seleccionados. ¡La oferta es por tiempo limitado!",
+      "descuento": 25
+    },
+    {
+      "titulo": "Cupón de Cliente VIP EXCLUSIVO30",
+      "descripcion": "Eres un cliente VIP y te mereces lo mejor. Utiliza el cupón EXCLUSIVO30 en tu próxima compra y obtén un exclusivo descuento del 30% como agradecimiento por tu lealtad.",
+      "descuento": 30
+    }
+  ]
+}

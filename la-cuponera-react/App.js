@@ -14,8 +14,8 @@ import SettingPage from './src/components/generic/setting.component';
 import SplashScreen from './src/components/SplashScreen';
 import HomeScreen from './src/components/HomeScreen';
 import { Image, View } from "react-native";
-import MantenimientoEmpresasAndroi from './src/components/mantenimiento.empresas';
-import HomePageUsuario from "./src/components/HomePageUsuario";
+import MantenimientoEmpresasAndroi from './src/components/empresas/mantenimiento.empresas.component';
+import HomePageUsuario from "./src/components/cupones/mantenimiento.cupones.component";
 
 const AppMain = ({ navigation }) => {
     const [usuario, setUsuario] = useState(null);
