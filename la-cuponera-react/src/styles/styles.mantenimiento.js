@@ -10,6 +10,9 @@ export const styles = StyleSheet.create({
 	icon2: { 
 		marginLeft: 15,
 	},
+	icon3: { 
+		marginLeft: 5,
+	},
 	crearTypo: {
 		color: "rgba(255, 255, 255, 0.9)",
 
@@ -172,6 +175,15 @@ export const styles = StyleSheet.create({
 		top: 75,
 		position: "absolute"
 	},
+	rectangleView3: {
+		left: 250,
+		borderRadius: 5,
+		backgroundColor: "#0e64d2",
+		width: 75,
+		height: 48,
+		top: 75,
+		position: "absolute"
+	},
 	rectangleView: {
 		left: 125,
 		borderRadius: 5,
@@ -242,12 +254,17 @@ export const styles = StyleSheet.create({
 		textAlign: "left"
 	},
 	transactionNameParent: {
-		marginLeft: 16,
+		marginLeft: 25,
 		flex: 1
 	},
 	text10: {
-		left: 265,
+		left: 200,
 		top: -46,
+		marginLeft: 16
+	},
+	text11: {
+		left: 280,
+		top: -62,
 		marginLeft: 16
 	},
 	transactionItem: {
@@ -288,9 +305,17 @@ export const styles = StyleSheet.create({
 	},
 	estado: {
 		top: 147,
-		left: 280,
+		left: 215,
 		textAlign: "left",
-
+		fontWeight: 'bold',
+		fontSize: 14,
+		position: "absolute"
+	},
+	editar: {
+		top: 147,
+		left: 300,
+		textAlign: "left",
+		fontWeight: 'bold',
 		fontSize: 14,
 		position: "absolute"
 	},
@@ -298,7 +323,7 @@ export const styles = StyleSheet.create({
 		top: 146,
 		left: 26,
 		textAlign: "left",
-
+		fontWeight: 'bold',
 		fontSize: 14,
 		position: "absolute"
 	},

@@ -164,8 +164,9 @@ const MantenimientoEmpresasAndroi = () => {
 			</View>
 
 
-			<Text style={[styles.estado, styles.buscarClr]}>estado</Text>
-			<Text style={[styles.nombreEmpresa, styles.buscarClr]}>nombre Empresa</Text>
+			<Text style={[styles.estado, styles.buscarClr]}>Estado</Text>
+			<Text style={[styles.editar, styles.buscarClr]}>Editar</Text>
+			<Text style={[styles.nombreEmpresa, styles.buscarClr]}>Nombre Empresa</Text>
 			<View style={styles.contenedor}>
 				<FlatList data={cupones}
 					keyExtractor={(item, index) => item.key}
@@ -176,6 +177,17 @@ const MantenimientoEmpresasAndroi = () => {
 								<Text style={[styles.yesterday1249Pm, styles.text10Typo]}>cantidad {item["cantidad"]}</Text>
 							</View>
 							<Text style={[styles.text10, styles.text10Typo]}>{item["estado"]}</Text>
+							<Text style={[styles.text11, styles.text10Typo]}>
+								<TouchableOpacity onPress={() => { ()=> {console.log('editar!');} }} style={styles.rectangleView3}>
+									<Text style={[styles.buscarPosition, styles.buscar]}>Edit
+										<MaterialCommunityIcons
+											name={'circle-edit-outline'}
+											size={24}
+											color="#000"
+											style={styles.icon3} /></Text>
+								</TouchableOpacity>
+							</Text>
+
 						</View>
 					)}
 				/>
