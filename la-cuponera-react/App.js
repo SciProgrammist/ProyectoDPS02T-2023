@@ -79,19 +79,6 @@ const AppMain = ({ navigation }) => {
                         },
                     }}
                     component={HomePage} initialParams={usuario} />
-                <Tab.Screen name="Cupones"
-                    options={{
-                        title: 'Cupones',
-                        activeTintColor: 'white',
-                        inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: () => {
-                            return (
-                                <Image style={{ width: 25, height: 25 }}
-                                    source={require('./src/img/cupon.png')} />
-                            );
-                        },
-                    }}
-                    component={HomeScreen} />
                 <Tab.Screen name="Settings"
                     options={{
                         title: 'Settings',

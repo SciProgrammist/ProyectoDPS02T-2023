@@ -1,15 +1,32 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
 import { styles } from "../../styles/stylesCuponesLista";
-import Cupones from '../../utis/cupones.home.json'
 import ModalViewCupones from "./modal.view.component";
 import Starts from "./starts.component";
+import { database } from "../../utis/firebase";
 
 const HomePageUsuario = () => {
-    const [cupones, setcupones] = useState(Cupones.cupones);
+    const [cupones, setcupones] = useState();
     const [modalVisible, setModalVisible] = useState(false);
 
+    useEffect(() => {
+		findAll();
+	}, [modalVisible,  cupones])
+
+
+    async function findAll() {
+
+		database
+			.ref('/cupones')
+			.once('value')
+			.then(snapshot => {
+				setcupones(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
+			});
+
+	}
+
+    
     function canjearCupon() {
         console.log("STARTING PROCESS CANJEAR CUPON...");
         setModalVisible(true);
@@ -50,7 +67,7 @@ const HomePageUsuario = () => {
                                 <View style={[styles.storeItem1, styles.storeItemLayout]}>
                                     <Text style={[styles.text, styles.textTypo]}>{item.descuento}% OFF</Text>
                                     <Text style={[styles.designLeadershipHow, styles.homeTypo]}>
-                                        Design Leadership: How Top Design Leaders Build and Grow Successful...
+                                    {item.descripcion}
                                         {item.titulo}
                                     </Text>
                                     <View style={[styles.storeItem1Child, styles.storeItem1ChildBg]} />
