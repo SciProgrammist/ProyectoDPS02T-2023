@@ -21,12 +21,10 @@ export default function ModalViewCupones(props) {
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <Text style={styles.modalText}>CANJEAR CUPON</Text>
-                        <ConfirmacinDeCompraAndroi />
-                        <TouchableOpacity
-                            style={[styles.button, styles.buttonClose]}
-                            onPress={cancelar}>
-                            <Text style={styles.button}>cancelar</Text>
-                        </TouchableOpacity>
+
+                        <ConfirmacinDeCompraAndroi
+                        cancelar={cancelar} />
+
                     </View>
                 </View>
             </Modal>
