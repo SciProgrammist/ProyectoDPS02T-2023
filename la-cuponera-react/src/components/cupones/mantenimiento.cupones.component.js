@@ -4,6 +4,7 @@ import { Image } from "expo-image";
 import { styles } from "../../styles/stylesCuponesLista";
 import Cupones from '../../utis/cupones.home.json'
 import ModalViewCupones from "./modal.view.component";
+import Starts from "./starts.component";
 
 const HomePageUsuario = () => {
     const [cupones, setcupones] = useState(Cupones.cupones);
@@ -53,33 +54,7 @@ const HomePageUsuario = () => {
                                         {item.titulo}
                                     </Text>
                                     <View style={[styles.storeItem1Child, styles.storeItem1ChildBg]} />
-                                    <View style={styles.starParent}>
-                                        <Image
-                                            style={styles.starIconLayout}
-                                            contentFit="cover"
-                                            source={require("../../assets/star1.png")}
-                                        />
-                                        <Image
-                                            style={[styles.starIcon1, styles.starIconLayout]}
-                                            contentFit="cover"
-                                            source={require("../../assets/star1.png")}
-                                        />
-                                        <Image
-                                            style={[styles.starIcon1, styles.starIconLayout]}
-                                            contentFit="cover"
-                                            source={require("../../assets/star2.png")}
-                                        />
-                                        <Image
-                                            style={[styles.starIcon1, styles.starIconLayout]}
-                                            contentFit="cover"
-                                            source={require("../../assets/star2.png")}
-                                        />
-                                        <Image
-                                            style={[styles.starIcon1, styles.starIconLayout]}
-                                            contentFit="cover"
-                                            source={require("../../assets/star2.png")}
-                                        />
-                                    </View>
+                                    <Starts />
                                     <Image
                                         style={styles.photographIcon}
                                         contentFit="cover"
