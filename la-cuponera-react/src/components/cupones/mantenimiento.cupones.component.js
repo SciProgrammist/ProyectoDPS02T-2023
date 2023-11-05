@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, SafeAreaView, TextInput } from "react-native";
 import { Image } from "expo-image";
 import { styles } from "../../styles/stylesCuponesLista";
 import ModalViewCupones from "./modal.view.component";
@@ -8,6 +8,7 @@ import { database } from "../../utis/firebase";
 
 const HomePageUsuario = () => {
     const [cupones, setcupones] = useState();
+    const [cuponselect, setcuponselec] = useState();
     const [modalVisible, setModalVisible] = useState(false);
 
     useEffect(() => {
@@ -27,8 +28,9 @@ const HomePageUsuario = () => {
 	}
 
     
-    function canjearCupon() {
+    function canjearCupon(item) {
         console.log("STARTING PROCESS CANJEAR CUPON...");
+        setcuponselec(item);
         setModalVisible(true);
     }
     function cancelar() {
@@ -41,18 +43,23 @@ const HomePageUsuario = () => {
                     modalVisible={modalVisible}
                     setModalVisible={setModalVisible}
                     cancelar={cancelar}
+                    cupon={cuponselect}
+                    
+                    
                 />
 
             <View style={styles.homePageUsuario}>
 
-                <Text style={[styles.buscarCuponesPor, styles.buscarFlexBox]}>
-                    Buscar cupones por empresa
-                </Text>
-                <Image
-                    style={[styles.homePageUsuarioInner, styles.rectangleViewPosition]}
-                    contentFit="cover"
-                    source={require("../../assets/rectangle-1.png")}
-                />
+                 
+                <View style={styles.contenedor}>
+               
+                <FlatList data={cupones}
+                ListHeaderComponent={() => 
+
+                <View style={{height:100, top:-10}}>
+                    
+                <TextInput placeholder="Buscar cupones por empresa" style={styles.barrabuscar}/>
+                    
                 <View style={[styles.rectangleView, styles.rectangleViewPosition]} />
                 <Text style={[styles.buscar, styles.buscarFlexBox]}>Buscar</Text>
                 <Image
@@ -60,11 +67,13 @@ const HomePageUsuario = () => {
                     contentFit="cover"
                     source={require("../../assets/search.png")}
                 />
-                <View style={styles.contenedor}>
-                    <FlatList data={cupones}
+                    </View>
+                }
                         renderItem={({ item }) => (
-                            <TouchableOpacity onPress={canjearCupon}>
-                                <View style={[styles.storeItem1, styles.storeItemLayout]}>
+                        
+                            <TouchableOpacity style={{height:375}} onPress={() => canjearCupon(item)}>
+                              
+                                <View style={{height:400, width:375}}>
                                     <Text style={[styles.text, styles.textTypo]}>{item.descuento}% OFF</Text>
                                     <Text style={[styles.designLeadershipHow, styles.homeTypo]}>
                                     {item.descripcion}
@@ -78,10 +87,17 @@ const HomePageUsuario = () => {
                                         source={require("../../assets/photograph.png")}
                                     />
                                 </View>
+                               
                             </TouchableOpacity>
+
+                            
+                           
+                            
                         )}
                     />
+                    
                 </View>
+              
             </View>
         </>
     );
