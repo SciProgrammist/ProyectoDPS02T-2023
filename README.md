@@ -53,5 +53,5 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 * [Enlace a Mockups] - https://www.figma.com/file/usH32S6093TPHjQ3bDhxsZ/Mockups-DSP-C2-2023?type=design&node-id=0%3A1&mode=dev
 * 
 ## usuario generico
- carlossalazar2228@gmail.com
- L4Kp7vx6vew3CrT
+carlossalazar2228@gmail.com
+L4Kp7vx6vew3CrT

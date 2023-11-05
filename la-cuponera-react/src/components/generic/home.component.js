@@ -13,7 +13,7 @@ export default function HomePage(props) {
 
     useEffect(() => {
         findById();
-    }, [usuario])
+    }, [usuario, currentUsers, id])
 
 
 
@@ -23,17 +23,29 @@ export default function HomePage(props) {
             .once('value')
             .then(snapshot => {
                 setCurrentUsers(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
-                console.log('User data: ', snapshot.val());
+           //     console.log('User data: ', snapshot.val());
             });
     }
 
-    console.log(id);
+    function validarCampos(objeto) {
+        for (let clave in objeto) {
+            if (objeto[clave] === null || objeto[clave] === undefined) {
+                return false; // Si encuentra un campo nulo o indefinido, devuelve falso
+            }
+        }
+        return true; // Si todos los campos son válidos, devuelve verdadero
+    }
+
+
+   // console.log(id);
+   //  console.log(currentUsers);
+    
     return (
         <View style={{ margin: 'auto', margin: 5, padding: 5, width: '100%', height: '100%', alignItems: 'center' }}>
             <Text>Home Page </Text>
-            <Text>Usuario Ingresado: {currentUsers.nombre} </Text>
-            <Text>Correo: {currentUsers.email} </Text>
-            <Text>Estado: {currentUsers.estado} </Text>
+            <Text>Usuario Ingresado: {validarCampos(currentUsers) && currentUsers != undefined ? currentUsers.nombre : ''} </Text>
+            <Text>Correo: {validarCampos(currentUsers) && currentUsers != undefined ? currentUsers.email : ''} </Text>
+            <Text>Estado: {validarCampos(currentUsers) && currentUsers != undefined ? currentUsers.estado : ''} </Text>
         </View>
     );
 }
