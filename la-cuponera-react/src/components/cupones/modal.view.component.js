@@ -5,6 +5,7 @@ import ConfirmacinDeCompraAndroi from "./modal.cupones.component";
 
 export default function ModalViewCupones(props) {
     const { cancelar } = props;
+    const { cupon } = props;
     const { modalVisible } = props;
     const { setModalVisible } = props;
 
@@ -23,6 +24,7 @@ export default function ModalViewCupones(props) {
                         <Text style={styles.modalText}>CANJEAR CUPON</Text>
 
                         <ConfirmacinDeCompraAndroi
+                        cupon={cupon}
                         cancelar={cancelar} />
 
                     </View>

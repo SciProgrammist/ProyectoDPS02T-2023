@@ -5,7 +5,8 @@ import { styles } from "../../styles/stylesModalCupon";
 
 const ConfirmacinDeCompraAndroi = (props) => {
   const { cancelar } = props;
-
+  const { cupon } = props;
+  
   return (
     <View style={styles.confirmacinDeCompraAndroi}>
       <View style={[styles.productDetail, styles.productLayout]}>
