@@ -1,29 +1,8 @@
-
-/*
- import { RefreshControlBase } from "react-native";
-import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import { styles } from "../../styles/styles";
-import LoginComponent from "../login/logout.component";
-
-export default function SettingPage(props) {
-    const { signOut } = props;
-    return (
-        <View>
-            <Text>Setting Page</Text>
-            <View>
-                <LoginComponent signOut={signOut} />
-            </View>
-        </View>
-    );
-}
-
-*/
-
 import * as React from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { Color, Border, FontFamily, FontSize, styles } from "../../styles/styleSettings"
-const Frame = (props) => {
+
+const SettingPage = (props) => {
     const { signOut } = props;
     return (
         <View style={styles.iphone142Parent}>
@@ -139,4 +118,4 @@ const Frame = (props) => {
     );
 };
 
-export default Frame;
+export default SettingPage;
