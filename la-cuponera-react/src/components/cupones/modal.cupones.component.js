@@ -11,29 +11,32 @@ const ConfirmacinDeCompraAndroi = (props) => {
     <View style={styles.confirmacinDeCompraAndroi}>
       <View style={[styles.productDetail, styles.productLayout]}>
         <View style={[styles.modal1, styles.modalShadowBox]}>
-          <View style={styles.modalTitle}>
+          <View style={{
+            position:'absolute',
+            top:-10,
+            left:75,}}>
             <Text style={[styles.folowSteps, styles.yourBidTypo]}>
               Confirmar Cupón
             </Text>
-            <View style={[styles.share, styles.shareSpaceBlock]}>
-              <Image
-                style={styles.checkCircleIcon}
-                contentFit="cover"
-                source={require("../../img/iconscloseline.png")}
-              />
-            </View>
+
           </View>
+          <Image
+        style={{top:-260,height:130,width:300}}
+        contentFit="cover"
+        source={require("../../img/photo.png")}
+              />
+<View style={{position:'absolute',top:60, width:300}}>
+            <View style={{top:15}}>
           <Text
             style={[styles.youAreAbout1, styles.youSpaceBlockt1]}
           >
-            {`
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-consectetur adipiscing elit. Aenean ornare, magna sit ame `}
-</Text>
+            {cupon.descripcion}
+          </Text>
+            </View>
           <View style={styles.youSpaceBlockt}>
             <View style={styles.yourBidWrapper}>
               <Text style={[styles.yourBid, styles.yourBidTypo]}>
-                Cupones Seleccionados
+                  Cupones Seleccionados
               </Text>
             </View>
             <View style={styles.amountsSpaceBlock}>
@@ -42,7 +45,7 @@ consectetur adipiscing elit. Aenean ornare, magna sit ame `}
                   empresa
                 </Text>
                 <Text style={[styles.eth6, styles.ethTypo]}>
-                  Lorem ipsum dolor sit
+                  {cupon.empresa}
                 </Text>
               </View>
               <View style={[styles.divider, styles.dividerSpaceBlockb]} />
@@ -56,45 +59,31 @@ consectetur adipiscing elit. Aenean ornare, magna sit ame `}
                 <Text style={[styles.yourBalance, styles.enterBidTypo]}>
                   descuento
                 </Text>
-                <Text style={[styles.eth1, styles.ethTypo]}>30% OFF</Text>
+                <Text style={[styles.eth1, styles.ethTypo]}>{cupon.descuento}% OFF</Text>
               </View>
               <View style={[styles.balance, styles.dividerSpaceBlockb]}>
                 <Text style={[styles.yourBalance, styles.enterBidTypo]}>
-                  fecha de compra
+                  valido hasta
                 </Text>
-                <Text style={[styles.eth1, styles.ethTypo]}>DD/MM/YYYY</Text>
+                <Text style={[styles.eth1, styles.ethTypo]}>{cupon.fechavenc}</Text>
               </View>
             </View>
           </View>
           <View style={styles.youSpaceBlockb}>
-            <View style={[styles.button, styles.buttonSpaceBlock]}>
+            <TouchableOpacity  onPress={() => console.log(cupon)} style={[styles.button, styles.buttonSpaceBlock]}>
               <Text style={[styles.label, styles.labelTypo]}>Confirmar</Text>
-            </View>
-            <View style={[styles.button1, styles.button1SpaceBlock]}>
-            <TouchableOpacity
-                            
-                            onPress={cancelar}>
+            </TouchableOpacity>
+            <View>
+                            <TouchableOpacity style={[styles.button1, styles.button1SpaceBlock]}onPress={cancelar}>
                             <Text style={[styles.label1, styles.labelTypo]}>Cancelar</Text>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
 
             
             </View>
           </View>
-        </View>
-        <View style={styles.productDetailInner}>
-          <Image
-            style={styles.frameChild}
-            contentFit="cover"
-
-          />
+          </View>
         </View>
       </View>
-      <Image
-        style={[styles.photographIcon]}
-        contentFit="cover"
-        source={require("../../img/photo.png")}
-
-      />
     </View>
   );
 };

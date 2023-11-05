@@ -6,6 +6,19 @@ export const styles = StyleSheet.create({
         textAlign: "left",
         position: "absolute",
     },
+    barrabuscar:{
+
+width:200,
+height:50,
+top: 64,
+left:30,
+position: "absolute",
+borderRadius:10,
+borderWidth:0.5,
+borderColor:'#000',
+textAlign:'center'
+
+    },
     rectangleViewPosition: {
         top: 64,
         position: "absolute",
@@ -150,7 +163,6 @@ export const styles = StyleSheet.create({
     storeItem1: {
         top: 121,
         left: 8,
-        height: 350,
     },
     text1: {
         display: "none",
@@ -214,9 +226,10 @@ export const styles = StyleSheet.create({
         backgroundColor: Color.white,
     },
     contenedor: {
+        position:'absolute',
 		alignContent: 'center',
         width:500,
-		height: 550,
+		height: 625,
 	},
     contenedor2X: {
         marginLeft:'10%',
