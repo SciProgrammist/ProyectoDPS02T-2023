@@ -26,6 +26,34 @@ const MyCupons = () => {
             });
     }
 
+    function splitCamposPorGuion(objeto) {
+        for (let clave in objeto) {
+            if (typeof objeto[clave] === 'string' && objeto[clave].includes('-')) {
+                objeto[clave] = objeto[clave].split('-');
+            }
+        }
+        return objeto.split('-')[0];
+    }
+
+    function findCuponById(id) {
+        database
+            .ref('/cupones/' + id)
+            .once('value')
+            .then(snapshot => {
+              //  console.log('User data: ', (JSON.parse(JSON.stringify(snapshot.val()).replace("null,", ''))).titulo);
+               return  (JSON.parse(JSON.stringify(snapshot.val()).replace("null,", ''))).titulo;
+            });
+    }
+
+    function validarCampos(objeto) {
+
+        for (let clave in objeto) {
+            if (objeto[clave] === null || objeto[clave] === undefined) {
+                return false; // Si encuentra un campo nulo o indefinido, devuelve falso
+            }
+        }
+        return true; // Si todos los campos son válidos, devuelve verdadero
+    }
 
 
     function canjearCupon() {
@@ -58,19 +86,37 @@ const MyCupons = () => {
 
                 <View style={styles.contenedor2X}>
                     {
-                    !(minecupones === null || minecupones === undefined)
-                        ? <FlatList data={minecupones}
-                            renderItem={({ e }) => (
-                                <TouchableOpacity>
-                                    <View style={{ backgroundColor: 'red', height:100 }}>
-                                        <View>
-                                            <Text>{ JSON.stringify(e)}</Text>
+                        !(minecupones === null || minecupones === undefined)
+                            ? <FlatList data={minecupones}
+                                renderItem={({ item }) => (
+                                    <TouchableOpacity>
+                                        <View style={{ backgroundColor: '#C7C7C7', height: 250 }}>
+                                            <View>
+                                                <Image
+                                                    style={{
+                                                        marginTop: 25,
+                                                        marginLeft: -86,
+                                                        width: 171,
+                                                        height: 176,
+                                                        top: "50%",
+                                                        left: "50%",
+                                                        position: "absolute",
+                                                    }}
+                                                    resizeMode="cover"
+                                                    source={{ uri: `${validarCampos(item) && item != undefined ? item.codigoQR : ''}` }}
+                                                />
+                                                <Text>
+                                                    Fecha Adquirido   {validarCampos(item) && item != undefined ? item.fecha : '...'}
+                                                </Text>
+                                                <Text>
+                                                    Titulo   {validarCampos(item) && item != undefined ? findCuponById(splitCamposPorGuion(item.id)) : '...'}
+                                                </Text>
+                                            </View>
                                         </View>
-                                    </View>
-                                </TouchableOpacity>
-                            )}
-                        />
-                        : (<View><Text>Data Loading...</Text></View>)
+                                    </TouchableOpacity>
+                                )}
+                            />
+                            : (<View><Text>Data Loading...</Text></View>)
                     }
                 </View>
             </View>

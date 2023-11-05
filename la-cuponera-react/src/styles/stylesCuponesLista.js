@@ -232,10 +232,10 @@ textAlign:'center'
 		height: 625,
 	},
     contenedor2X: {
-        marginLeft:'10%',
+        marginLeft:'5%',
         top:150,
         backgroundColor: '#C7C7C7',
-        width:300,
+        width:350,
 		height: 485,
 	},
     centeredView: {
