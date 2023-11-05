@@ -218,6 +218,13 @@ export const styles = StyleSheet.create({
         width:500,
 		height: 550,
 	},
+    contenedor2X: {
+        marginLeft:'10%',
+        top:150,
+        backgroundColor: '#C7C7C7',
+        width:300,
+		height: 485,
+	},
     centeredView: {
         width: '100%',
         height: '100%',

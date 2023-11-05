@@ -13,6 +13,7 @@ import HomePage from './src/components/generic/home.component';
 import SettingPage from './src/components/generic/setting.component';
 import SplashScreen from './src/components/SplashScreen';
 import HomeScreen from './src/components/HomeScreen';
+import MyCupons from './src/components/cupones/mis.cupones.component';
 import { Image, View } from "react-native";
 import MantenimientoEmpresasAndroi from './src/components/empresas/mantenimiento.empresas.component';
 import HomePageUsuario from "./src/components/cupones/mantenimiento.cupones.component";
@@ -48,7 +49,7 @@ const AppMain = ({ navigation }) => {
 
     const SettingComponent = props => (
         <SettingPage signOut={signOut} {...props} />
-      );
+    );
 
     function MyTabs() {
         return (
@@ -66,6 +67,19 @@ const AppMain = ({ navigation }) => {
                         },
                     }}
                     component={HomePageUsuario} />
+                <Tab.Screen name="MisCupones"
+                    options={{
+                        title: 'MisCupones',
+                        activeTintColor: 'white',
+                        inactiveTintColor: '#d9d9d9',
+                        tabBarIcon: () => {
+                            return (
+                                <Image style={{ width: 25, height: 25 }}
+                                    source={require('./src/img/cupon.png')} />
+                            );
+                        },
+                    }}
+                    component={MyCupons} />
                 <Tab.Screen name="Home"
                     options={{
                         title: 'Home',
