@@ -35,13 +35,14 @@ const MyCupons = () => {
         return objeto.split('-')[0];
     }
 
-    function findCuponById(id) {
+    async function findCuponById(id) {
+       
         database
             .ref('/cupones/' + id)
             .once('value')
             .then(snapshot => {
               //  console.log('User data: ', (JSON.parse(JSON.stringify(snapshot.val()).replace("null,", ''))).titulo);
-               return  (JSON.parse(JSON.stringify(snapshot.val()).replace("null,", ''))).titulo;
+             return  JSON.parse(JSON.stringify(snapshot.val()).replace("null,", ''));
             });
     }
 
@@ -109,7 +110,7 @@ const MyCupons = () => {
                                                     Fecha Adquirido   {validarCampos(item) && item != undefined ? item.fecha : '...'}
                                                 </Text>
                                                 <Text>
-                                                    Titulo   {validarCampos(item) && item != undefined ? findCuponById(splitCamposPorGuion(item.id)) : '...'}
+                                                    Titulo   {validarCampos(item) && item != undefined ? JSON.stringify(findCuponById(splitCamposPorGuion(item.id))) : '...'}
                                                 </Text>
                                             </View>
                                         </View>
