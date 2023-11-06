@@ -4,6 +4,7 @@ import variables from './src/utis/variables';
 import { styles } from './src/styles/styles';
 import FormComponent from './src/components/login/form.component';
 import { auth } from './src/utis/firebase';
+import { database } from './src/utis/firebase';
 import SocialNetworks from './src/components/login/social.networks.component';
 import Separator from './src/components/generic/separator.component';
 import CreateAccountTemplate from './src/components/login/create.account.component';
@@ -19,11 +20,14 @@ import MantenimientoEmpresasAndroi from './src/components/empresas/mantenimiento
 import HomePageUsuario from "./src/components/cupones/mantenimiento.cupones.component";
 
 const AppMain = ({ navigation }) => {
+    const [currentUsers, setCurrentUsers] = useState(auth.currentUser);
     const [usuario, setUsuario] = useState(null);
+    const [usuarioDB, setUsuarioDB] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isCreateAccount, setIsCreateAccount] = useState(false);
     const [error, setError] = useState(null);
     const [username, setUsername] = useState('');
+    const [id, setId] = useState(currentUsers.uid);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const Tab = createBottomTabNavigator();
@@ -39,8 +43,21 @@ const AppMain = ({ navigation }) => {
             setIsSplashVisible(false);
         }, 3000);
 
+        console.log(usuarioDB);
+        findById();
+
         return () => clearTimeout(splashTimer);
-    }, [usuario, isLoggedIn])
+    }, [usuario, isLoggedIn, currentUsers, id])
+
+    function findById() {
+        database
+            .ref('/usuarios/' + id)
+            .once('value')
+            .then(snapshot => {
+                setUsuarioDB(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
+                //     console.log('User data: ', snapshot.val());
+            });
+    }
 
 
     const navigateToHome = () => {
@@ -107,7 +124,10 @@ const AppMain = ({ navigation }) => {
                     }}
                     component={SettingComponent}
                 />
-                <Tab.Screen name="Empresas"
+                {
+                    (usuarioDB !=null && usuarioDB != undefined && usuarioDB.tipo ==='administrador')
+                    ?
+                    <Tab.Screen name="Empresas"
                     options={{
                         title: 'Empresas',
                         activeTintColor: 'white',
@@ -120,6 +140,9 @@ const AppMain = ({ navigation }) => {
                         },
                     }}
                     component={MantenimientoEmpresasAndroi} />
+                    : null
+                }
+                
             </Tab.Navigator>
         );
     }
