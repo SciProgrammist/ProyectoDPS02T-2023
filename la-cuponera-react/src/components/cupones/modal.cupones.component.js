@@ -75,7 +75,7 @@ const ConfirmacinDeCompraAndroi = (props) => {
               </View>
             </View>
             <View style={styles.youSpaceBlockb}>
-              <TouchableOpacity onPress={() => saveCupon((id +'-'+ cupon.id))} style={[styles.button, styles.buttonSpaceBlock]}>
+              <TouchableOpacity onPress={() => saveCupon(( cupon.id+'-'+id ))} style={[styles.button, styles.buttonSpaceBlock]}>
                 <Text style={[styles.label, styles.labelTypo]}>Confirmar</Text>
               </TouchableOpacity>
               <View>

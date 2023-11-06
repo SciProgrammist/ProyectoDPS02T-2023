@@ -47,14 +47,14 @@ const HomePageUsuario = ({ route }) => {
         return Math.floor(Math.random() * 100); // Genera un número aleatorio entre 0 y 99
     }
 
-    function saveCupon(id) {
+    function saveCupon(idGenerado) {
         let fechaInt = new Date();
         let idInter = generarNumeroEnteroAleatorio();
         database.ref('cuponesUsuario/' + idInter).set(
             {
                 codigoQR: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + id,
                 fecha: fechaInt,
-                id: id
+                id: idGenerado
             }).then(() => {
                 console.log("SAVED!");
                 setModalVisible(false)
