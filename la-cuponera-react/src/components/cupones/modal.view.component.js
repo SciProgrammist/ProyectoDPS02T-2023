@@ -1,13 +1,17 @@
 import React from "react";
 import { styles } from "../../styles/stylesCuponesLista";
-import { View, Text,  TouchableOpacity,  Modal } from "react-native";
+import { View, Text, TouchableOpacity, Modal } from "react-native";
 import ConfirmacinDeCompraAndroi from "./modal.cupones.component";
+
 
 export default function ModalViewCupones(props) {
     const { cancelar } = props;
     const { cupon } = props;
     const { modalVisible } = props;
     const { setModalVisible } = props;
+    const { currentUsers } = props;
+    const { saveCupon } = props;
+    const { id } = props;
 
     return (
         <View>
@@ -24,8 +28,10 @@ export default function ModalViewCupones(props) {
                         <Text style={styles.modalText}>CANJEAR CUPON</Text>
 
                         <ConfirmacinDeCompraAndroi
-                        cupon={cupon}
-                        cancelar={cancelar} />
+                            cupon={cupon}
+                            cancelar={cancelar}
+                            saveCupon={saveCupon}
+                            id={id} />
 
                     </View>
                 </View>
