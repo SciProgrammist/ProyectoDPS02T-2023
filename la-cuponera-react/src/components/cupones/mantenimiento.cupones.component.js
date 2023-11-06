@@ -50,10 +50,11 @@ const HomePageUsuario = ({ route }) => {
     function saveCupon(idGenerado) {
         let fechaInt = new Date();
         let idInter = generarNumeroEnteroAleatorio();
+        console.log(fechaInt)
         database.ref('cuponesUsuario/' + idInter).set(
             {
                 codigoQR: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + id,
-                fecha: fechaInt,
+                fecha: fechaInt.toISOString(),
                 id: idGenerado
             }).then(() => {
                 console.log("SAVED!");
