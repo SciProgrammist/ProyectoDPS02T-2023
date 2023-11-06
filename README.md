@@ -1,5 +1,5 @@
 # ProyectoDPS02T-2023
-_Desarrollo de una aplicacion (...) como proyecto de catedra de la materia programacion de software multiplataforma de la Universidad Don Bosco, El Salvador_
+_Desarrollo de una aplicacion para gestion de cupones como proyecto de catedra de la materia programacion de software multiplataforma de la Universidad Don Bosco, El Salvador_
 
 ### Pre-requisitos de instalación 📋
 
@@ -47,9 +47,7 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 ## Enlaces de interés 👀
 
 * [Tablero en Trello] https://trello.com/invite/b/lcT4DYXo/ATTIdda96f493fee42cd5e514b176c640f67F775559F/proyectodps02t-2023
-* [Manual de usuario en la nube] - https:..
-* [Manual Técnico en la nube] - https:..
-* [Video de funcionamiento] - https:..
+* 
 * [Enlace a Mockups] - https://www.figma.com/file/usH32S6093TPHjQ3bDhxsZ/Mockups-DSP-C2-2023?type=design&node-id=0%3A1&mode=dev
 * 
 ## usuario generico
