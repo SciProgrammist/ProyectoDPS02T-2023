@@ -27,7 +27,7 @@ const AppMain = ({ navigation }) => {
     const [isCreateAccount, setIsCreateAccount] = useState(false);
     const [error, setError] = useState(null);
     const [username, setUsername] = useState('');
-    const [id, setId] = useState(currentUsers.uid);
+    const [id, setId] = useState(currentUsers != null && currentUsers != undefined ? currentUsers.uid : null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const Tab = createBottomTabNavigator();
@@ -43,13 +43,14 @@ const AppMain = ({ navigation }) => {
             setIsSplashVisible(false);
         }, 3000);
 
-        console.log(usuarioDB);
         findById();
+        //console.log(usuarioDB);
 
         return () => clearTimeout(splashTimer);
     }, [usuario, isLoggedIn, currentUsers, id])
 
     function findById() {
+        setId(auth.currentUser != null && auth.currentUser != undefined ? auth.currentUser.uid : null)
         database
             .ref('/usuarios/' + id)
             .once('value')
@@ -125,24 +126,24 @@ const AppMain = ({ navigation }) => {
                     component={SettingComponent}
                 />
                 {
-                    (usuarioDB !=null && usuarioDB != undefined && usuarioDB.tipo ==='administrador')
-                    ?
-                    <Tab.Screen name="Empresas"
-                    options={{
-                        title: 'Empresas',
-                        activeTintColor: 'white',
-                        inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: () => {
-                            return (
-                                <Image style={{ width: 25, height: 25 }}
-                                    source={require('./src/img/empresa.png')} />
-                            );
-                        },
-                    }}
-                    component={MantenimientoEmpresasAndroi} />
-                    : null
+                    (usuarioDB !== null && usuarioDB !== undefined && usuarioDB.tipo === 'administrador')
+                        ?
+                        <Tab.Screen name="Empresas"
+                            options={{
+                                title: 'Empresas',
+                                activeTintColor: 'white',
+                                inactiveTintColor: '#d9d9d9',
+                                tabBarIcon: () => {
+                                    return (
+                                        <Image style={{ width: 25, height: 25 }}
+                                            source={require('./src/img/empresa.png')} />
+                                    );
+                                },
+                            }}
+                            component={MantenimientoEmpresasAndroi} />
+                        : null
                 }
-                
+
             </Tab.Navigator>
         );
     }
@@ -193,6 +194,8 @@ const AppMain = ({ navigation }) => {
                 .catch((e) => {
                     console.log(e);
                 });
+            findById();
+            setId(userCredential.uid)
         } catch (error) {
             console.log('Something else went wrong... ', error.toString())
         }
