@@ -118,7 +118,7 @@ export
         reportAProblem: {
             fontFamily: FontFamily.interSemiBold,
             fontWeight: "600",
-            lineHeight: 14,
+            lineHeight: 16,
             fontSize: FontSize.size_base,
             left: 66,
             color: Color.colorBlack,
@@ -128,7 +128,7 @@ export
             top: 47,
             fontFamily: FontFamily.interSemiBold,
             fontWeight: "600",
-            lineHeight: 14,
+            lineHeight: 16,
             fontSize: FontSize.size_base,
             left: 66,
             color: Color.colorBlack,

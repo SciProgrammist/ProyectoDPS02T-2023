@@ -4,6 +4,7 @@ import variables from './src/utis/variables';
 import { styles } from './src/styles/styles';
 import FormComponent from './src/components/login/form.component';
 import { auth } from './src/utis/firebase';
+import { database } from './src/utis/firebase';
 import SocialNetworks from './src/components/login/social.networks.component';
 import Separator from './src/components/generic/separator.component';
 import CreateAccountTemplate from './src/components/login/create.account.component';
@@ -13,17 +14,20 @@ import HomePage from './src/components/generic/home.component';
 import SettingPage from './src/components/generic/setting.component';
 import SplashScreen from './src/components/SplashScreen';
 import HomeScreen from './src/components/HomeScreen';
+import MyCupons from './src/components/cupones/mis.cupones.component';
 import { Image, View } from "react-native";
 import MantenimientoEmpresasAndroi from './src/components/empresas/mantenimiento.empresas.component';
 import HomePageUsuario from "./src/components/cupones/mantenimiento.cupones.component";
 
 const AppMain = ({ navigation }) => {
+    const [currentUsers, setCurrentUsers] = useState(auth.currentUser);
     const [usuario, setUsuario] = useState(null);
-    const [currentUser, setcurrentUser] = useState(null);
+    const [usuarioDB, setUsuarioDB] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isCreateAccount, setIsCreateAccount] = useState(false);
     const [error, setError] = useState(null);
     const [username, setUsername] = useState('');
+    const [id, setId] = useState(currentUsers != null && currentUsers != undefined ? currentUsers.uid : null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const Tab = createBottomTabNavigator();
@@ -39,8 +43,22 @@ const AppMain = ({ navigation }) => {
             setIsSplashVisible(false);
         }, 3000);
 
+        findById();
+        //console.log(usuarioDB);
+
         return () => clearTimeout(splashTimer);
-    }, [usuario, isLoggedIn])
+    }, [usuario, isLoggedIn, currentUsers, id])
+
+    function findById() {
+        setId(auth.currentUser != null && auth.currentUser != undefined ? auth.currentUser.uid : null)
+        database
+            .ref('/usuarios/' + id)
+            .once('value')
+            .then(snapshot => {
+                setUsuarioDB(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
+                //     console.log('User data: ', snapshot.val());
+            });
+    }
 
 
     const navigateToHome = () => {
@@ -49,7 +67,7 @@ const AppMain = ({ navigation }) => {
 
     const SettingComponent = props => (
         <SettingPage signOut={signOut} {...props} />
-      );
+    );
 
     function MyTabs() {
         return (
@@ -66,7 +84,7 @@ const AppMain = ({ navigation }) => {
                             );
                         },
                     }}
-                    component={HomePageUsuario} initialParams={{usuario}} />
+                    component={HomePageUsuario} />
                 <Tab.Screen name="Home"
                     options={{
                         title: 'Home',
@@ -94,19 +112,25 @@ const AppMain = ({ navigation }) => {
                     }}
                     component={SettingComponent}
                 />
-                <Tab.Screen name="Empresas"
-                    options={{
-                        title: 'Empresas',
-                        activeTintColor: 'white',
-                        inactiveTintColor: '#d9d9d9',
-                        tabBarIcon: () => {
-                            return (
-                                <Image style={{ width: 25, height: 25 }}
-                                    source={require('./src/img/empresa.png')} />
-                            );
-                        },
-                    }}
-                    component={MantenimientoEmpresasAndroi} />
+                {
+                    (usuarioDB !== null && usuarioDB !== undefined && usuarioDB.tipo === 'administrador')
+                        ?
+                        <Tab.Screen name="Empresas"
+                            options={{
+                                title: 'Empresas',
+                                activeTintColor: 'white',
+                                inactiveTintColor: '#d9d9d9',
+                                tabBarIcon: () => {
+                                    return (
+                                        <Image style={{ width: 25, height: 25 }}
+                                            source={require('./src/img/empresa.png')} />
+                                    );
+                                },
+                            }}
+                            component={MantenimientoEmpresasAndroi} />
+                        : null
+                }
+
             </Tab.Navigator>
         );
     }
@@ -157,6 +181,8 @@ const AppMain = ({ navigation }) => {
                 .catch((e) => {
                     console.log(e);
                 });
+            findById();
+            setId(userCredential.uid)
         } catch (error) {
             console.log('Something else went wrong... ', error.toString())
         }
