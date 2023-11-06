@@ -18,6 +18,7 @@ import MyCupons from './src/components/cupones/mis.cupones.component';
 import { Image, View } from "react-native";
 import MantenimientoEmpresasAndroi from './src/components/empresas/mantenimiento.empresas.component';
 import HomePageUsuario from "./src/components/cupones/mantenimiento.cupones.component";
+import MantenimientoCuponesAdmin from './src/components/cupones/admin.mantenimiento.cupones.component';
 
 const AppMain = ({ navigation }) => {
     const [currentUsers, setCurrentUsers] = useState(auth.currentUser);
@@ -125,6 +126,24 @@ const AppMain = ({ navigation }) => {
                     }}
                     component={SettingComponent}
                 />
+                {
+                    (usuarioDB !== null && usuarioDB !== undefined && usuarioDB.tipo === 'administrador')
+                        ?
+                        <Tab.Screen name="AdminCupones"
+                            options={{
+                                title: 'AdminCupones',
+                                activeTintColor: 'white',
+                                inactiveTintColor: '#d9d9d9',
+                                tabBarIcon: () => {
+                                    return (
+                                        <Image style={{ width: 25, height: 25 }}
+                                            source={require('./src/img/empresa.png')} />
+                                    );
+                                },
+                            }}
+                            component={MantenimientoCuponesAdmin} />
+                        : null
+                }
                 {
                     (usuarioDB !== null && usuarioDB !== undefined && usuarioDB.tipo === 'administrador')
                         ?

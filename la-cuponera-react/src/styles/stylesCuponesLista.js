@@ -93,10 +93,24 @@ textAlign:'center'
         fontFamily: FontFamily.poppinsRegular,
         color: "rgba(0, 0, 0, 0.7)",
     },
+    buscarCuponesPor2: {
+        top: 81,
+        left: 40,
+        width: 130,
+        fontSize: 12,
+        fontFamily: FontFamily.poppinsRegular,
+        color: "rgba(0, 0, 0, 0.7)",
+    },
     homePageUsuarioInner: {
         left: 14,
         borderRadius: 10,
         width: 216,
+        height: 49,
+    },
+    homePageUsuarioInner2: {
+        left: 33,
+        borderRadius: 10,
+        width: 125,
         height: 49,
     },
     rectangleView: {
@@ -104,6 +118,13 @@ textAlign:'center'
         borderRadius: 5,
         backgroundColor: "#0e64d2",
         width: 110,
+        height: 48,
+    },
+    rectangleView2: {
+        left: 200,
+        borderRadius: 5,
+        backgroundColor: "#0e64d2",
+        width: 100,
         height: 48,
     },
     buscar: {
@@ -115,9 +136,23 @@ textAlign:'center'
         textAlign: "left",
         fontWeight: "600",
     },
+    buscar2: {
+        top: 76,
+        left: 215,
+        color: Color.colorGray_100,
+        fontFamily: FontFamily.poppinsSemiBold,
+        fontSize: FontSize.size_sm,
+        textAlign: "left",
+        fontWeight: "600",
+    },
     searchIcon: {
         top: 73,
         left: 311,
+        position: "absolute",
+    },
+    searchIcon2: {
+        top: 73,
+        left: 265,
         position: "absolute",
     },
     text: {
