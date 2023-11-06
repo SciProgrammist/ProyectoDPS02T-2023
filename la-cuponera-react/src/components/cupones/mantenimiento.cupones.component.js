@@ -5,16 +5,29 @@ import { styles } from "../../styles/stylesCuponesLista";
 import ModalViewCupones from "./modal.view.component";
 import Starts from "./starts.component";
 import { database } from "../../utis/firebase";
+import { color } from "react-native-elements/dist/helpers";
 
-const HomePageUsuario = () => {
+const HomePageUsuario = ({route}) => {
     const [cupones, setcupones] = useState();
     const [cuponselect, setcuponselec] = useState();
     const [modalVisible, setModalVisible] = useState(false);
+    const  usuario = route.params;
+    const [currentUsers, setCurrentUsers] = useState();
 
     useEffect(() => {
 		findAll();
-	}, [modalVisible,  cupones])
+         findById();
+	}, [modalVisible,  cupones,currentUsers])
 
+    function findById() {
+        database
+            .ref('/usuarios/' + usuario.uid)
+            .once('value')
+            .then(snapshot => {
+                setCurrentUsers(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
+                //     console.log('User data: ', snapshot.val());
+            });
+    }
 
     async function findAll() {
 
@@ -32,6 +45,7 @@ const HomePageUsuario = () => {
         console.log("STARTING PROCESS CANJEAR CUPON...");
         setcuponselec(item);
         setModalVisible(true);
+        console.log(usuario)
     }
     function cancelar() {
         console.log("STARTING PROCESS CANJEAR CUPON...");
@@ -44,6 +58,7 @@ const HomePageUsuario = () => {
                     setModalVisible={setModalVisible}
                     cancelar={cancelar}
                     cupon={cuponselect}
+                    
                     
                     
                 />

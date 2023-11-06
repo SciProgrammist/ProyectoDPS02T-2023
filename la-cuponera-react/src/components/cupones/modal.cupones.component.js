@@ -70,7 +70,7 @@ const ConfirmacinDeCompraAndroi = (props) => {
             </View>
           </View>
           <View style={styles.youSpaceBlockb}>
-            <TouchableOpacity  onPress={() => console.log(cupon)} style={[styles.button, styles.buttonSpaceBlock]}>
+            <TouchableOpacity  onPress={() => console.log()} style={[styles.button, styles.buttonSpaceBlock]}>
               <Text style={[styles.label, styles.labelTypo]}>Confirmar</Text>
             </TouchableOpacity>
             <View>
