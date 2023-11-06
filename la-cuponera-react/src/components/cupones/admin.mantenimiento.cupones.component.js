@@ -9,7 +9,7 @@ import { styles2 } from "../../styles/styleMisCupones";
 import { styles } from '../../styles/stylesCuponesLista'
 import { color } from "react-native-elements/dist/helpers";
 import { Text, Card, Button, Icon } from '@rneui/themed';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const MantenimientoCuponesAdmin = () => {
     const [minecupones, setMinecupones] = useState();
@@ -92,6 +92,14 @@ const MantenimientoCuponesAdmin = () => {
                         source={require("../../assets/search.png")}
                     />
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => { openModal() }} style={styles.rectangleView3}>
+					<Text style={[styles.buscarPosition, styles.buscar3]}>Add
+						<MaterialCommunityIcons
+							name={'content-save'}
+							size={24}
+							color="#fff"
+							 /></Text>
+				</TouchableOpacity>
 
                 <View style={styles.contenedor2X}>
                     {
