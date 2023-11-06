@@ -86,6 +86,19 @@ const AppMain = ({ navigation }) => {
                         },
                     }}
                     component={HomePageUsuario} />
+                <Tab.Screen name="MisCupones"
+                    options={{
+                        title: 'MisCupones',
+                        activeTintColor: 'white',
+                        inactiveTintColor: '#d9d9d9',
+                        tabBarIcon: () => {
+                            return (
+                                <Image style={{ width: 25, height: 25 }}
+                                    source={require('./src/img/cupon.png')} />
+                            );
+                        },
+                    }}
+                    component={MyCupons} />
                 <Tab.Screen name="Home"
                     options={{
                         title: 'Home',
