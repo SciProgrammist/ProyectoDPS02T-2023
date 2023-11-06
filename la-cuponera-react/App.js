@@ -19,6 +19,7 @@ import HomePageUsuario from "./src/components/cupones/mantenimiento.cupones.comp
 
 const AppMain = ({ navigation }) => {
     const [usuario, setUsuario] = useState(null);
+    const [currentUser, setcurrentUser] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isCreateAccount, setIsCreateAccount] = useState(false);
     const [error, setError] = useState(null);
@@ -65,7 +66,7 @@ const AppMain = ({ navigation }) => {
                             );
                         },
                     }}
-                    component={HomePageUsuario} />
+                    component={HomePageUsuario} initialParams={{usuario}} />
                 <Tab.Screen name="Home"
                     options={{
                         title: 'Home',
