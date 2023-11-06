@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect, EffectCallback, useCallback} from "react";
 import { View, Text, FlatList, TouchableOpacity, SafeAreaView, TextInput } from "react-native";
 import { Image } from "expo-image";
 import { styles } from "../../styles/stylesCuponesLista";
@@ -6,6 +6,7 @@ import ModalViewCupones from "./modal.view.component";
 import Starts from "./starts.component";
 import { database } from "../../utis/firebase";
 import { color } from "react-native-elements/dist/helpers";
+import { useFocusEffect } from "@react-navigation/native";
 
 const HomePageUsuario = ({route}) => {
     const [cupones, setcupones] = useState();
@@ -16,12 +17,12 @@ const HomePageUsuario = ({route}) => {
 
     useEffect(() => {
 		findAll();
-         findById();
+        findById();
 	}, [modalVisible,  cupones,currentUsers])
 
     function findById() {
         database
-            .ref('/usuarios/' + usuario.uid)
+            .ref('/usuarios/' + usuario.user.uid)
             .once('value')
             .then(snapshot => {
                 setCurrentUsers(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
@@ -45,7 +46,7 @@ const HomePageUsuario = ({route}) => {
         console.log("STARTING PROCESS CANJEAR CUPON...");
         setcuponselec(item);
         setModalVisible(true);
-        console.log(usuario)
+        console.log(currentUsers)
     }
     function cancelar() {
         console.log("STARTING PROCESS CANJEAR CUPON...");
@@ -58,7 +59,7 @@ const HomePageUsuario = ({route}) => {
                     setModalVisible={setModalVisible}
                     cancelar={cancelar}
                     cupon={cuponselect}
-                    
+                    currentuser={currentUsers}
                     
                     
                 />

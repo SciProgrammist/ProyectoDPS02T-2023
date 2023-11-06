@@ -6,6 +6,7 @@ import { styles } from "../../styles/stylesModalCupon";
 const ConfirmacinDeCompraAndroi = (props) => {
   const { cancelar } = props;
   const { cupon } = props;
+  const { currentuser } = props;
   
   return (
     <View style={styles.confirmacinDeCompraAndroi}>
@@ -70,7 +71,7 @@ const ConfirmacinDeCompraAndroi = (props) => {
             </View>
           </View>
           <View style={styles.youSpaceBlockb}>
-            <TouchableOpacity  onPress={() => console.log()} style={[styles.button, styles.buttonSpaceBlock]}>
+            <TouchableOpacity  onPress={() => console.log(currentuser)} style={[styles.button, styles.buttonSpaceBlock]}>
               <Text style={[styles.label, styles.labelTypo]}>Confirmar</Text>
             </TouchableOpacity>
             <View>

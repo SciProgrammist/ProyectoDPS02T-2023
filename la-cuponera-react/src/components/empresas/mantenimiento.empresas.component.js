@@ -113,7 +113,8 @@ const MantenimientoEmpresasAndroi = () => {
 				setEstado={setEstado}
 				setCantidad={setCantidad}
 			/>
-			<TextInput onChangeText={(txt) => setbuscado(txt)} placeholder="Buscar Empresa" style={[styles.buscarEmpresa]} />
+
+<TextInput onChangeText={(txt) => setbuscado(txt)} placeholder="Buscar Empresa" style={[styles.buscarEmpresa]} />
 			<View />
 			<View style={styles.container2}>
 				<TouchableOpacity onPress={buscar} style={styles.rectangleView}>
@@ -141,11 +142,13 @@ const MantenimientoEmpresasAndroi = () => {
 			<Text style={[styles.estado, styles.buscarClr]}>Estado</Text>
 			<Text style={[styles.editar, styles.buscarClr]}>Editar</Text>
 			<Text style={[styles.nombreEmpresa, styles.buscarClr]}>Nombre Empresa</Text>
-			<View style={styles.contenedor}>
+			<View style={{top:175, height:575}}>
 				<FlatList data={cupones}
 					keyExtractor={(item, index) => item.key}
+					ItemSeparatorComponent={()=> <View style={{marginBottom:10}}></View>}
+					
 					renderItem={({ item }) => (
-						<View>
+						<View style={{top:30}}>
 							<View style={styles.transactionNameParent}>
 								<Text style={[styles.transactionName, styles.homeTypo]}>{item["nombre"]}</Text>
 								<Text style={[styles.yesterday1249Pm, styles.text10Typo]}>cantidad {item["cantidad"]}</Text>
@@ -163,8 +166,7 @@ const MantenimientoEmpresasAndroi = () => {
 							</Text>
 
 						</View>
-					)}
-				/>
+					)}/>
 			</View>
 		</View>
 

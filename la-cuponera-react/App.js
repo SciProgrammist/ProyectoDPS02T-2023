@@ -84,7 +84,7 @@ const AppMain = ({ navigation }) => {
                             );
                         },
                     }}
-                    component={HomePageUsuario} />
+                    component={HomePageUsuario} initialParams={usuario}  />
                 <Tab.Screen name="Home"
                     options={{
                         title: 'Home',
