@@ -3,7 +3,11 @@ _Desarrollo de una aplicacion para gestion de cupones como proyecto de catedra d
 
 ### Pre-requisitos de instalación 📋
 
-_Para poder hacer uso de está aplicación..._
+_Para poder hacer uso de está aplicación se debe de contar con:_
+
+* 4 GB de memoria RAM
+* AMD Ryzen 7 5800X o superior
+* 2 GB de espacio disponible en el SSD.
 
 ## Herramientas 🛠️
 
