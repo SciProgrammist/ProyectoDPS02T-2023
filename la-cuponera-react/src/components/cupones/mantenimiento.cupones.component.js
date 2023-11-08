@@ -10,6 +10,8 @@ import { auth } from "../../utis/firebase";
 
 const HomePageUsuario = ({ route }) => {
     const [cupones, setcupones] = useState();
+    const [counter, SetCounter] = useState(0);
+    const [minecupones, setMinecupones] = useState();
     const [cuponselect, setcuponselec] = useState();
     const [modalVisible, setModalVisible] = useState(false);
     const usuario = route.params;
@@ -19,6 +21,7 @@ const HomePageUsuario = ({ route }) => {
     useEffect(() => {
         findAll();
         findById();
+        findAllMineCupons();
     }, [modalVisible, cupones])
 
     function findById() {
@@ -47,11 +50,27 @@ const HomePageUsuario = ({ route }) => {
         return Math.floor(Math.random() * 100); // Genera un número aleatorio entre 0 y 99
     }
 
+    async function findAllMineCupons() {
+
+        database
+            .ref('/cuponesUsuario')
+            .once('value')
+            .then(snapshot => {
+                setMinecupones(JSON.parse(JSON.stringify(snapshot.val()).replace("null,", '')))
+                SetCounter(obtenerLongitudArray(minecupones))
+            });
+    }
+
+    function obtenerLongitudArray(miArray) {
+        return miArray.length;
+    }
+
     function saveCupon(idGenerado) {
+        console.log(counter);
         let fechaInt = new Date();
         let idInter = generarNumeroEnteroAleatorio();
         console.log(fechaInt)
-        database.ref('cuponesUsuario/' + idInter).set(
+        database.ref('cuponesUsuario/' + (counter)).set(
             {
                 codigoQR: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + id,
                 fecha: fechaInt.toISOString(),

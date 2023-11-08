@@ -54,4 +54,4 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 * 
 ## usuario generico
 carlossalazar2228@gmail.com
-L4Kp7vx6vew3CrT
+123456
