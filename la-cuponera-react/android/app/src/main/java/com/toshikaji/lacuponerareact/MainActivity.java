@@ -1,4 +1,4 @@
-package com.lacuponerareact;
+package com.toshikaji.lacuponerareact;
 
 import android.os.Build;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.lacuponerareact;
+package com.toshikaji.lacuponerareact;
 
 import android.app.Application;
 import android.content.res.Configuration;

@@ -1,7 +1,8 @@
 {
   "expo": {
     "android": {
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "package": "com.toshikaji.lacuponerareact"
     },
     "ios": {
       "googleServicesFile": "./GoogleService-Info.plist"
@@ -14,7 +15,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f05f652b-3bb5-419e-9d8a-a665de2039bf"
+      }
+    }
   },
   "name": "la-cuponera-react"
 }
