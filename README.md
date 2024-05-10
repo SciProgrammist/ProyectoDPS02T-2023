@@ -21,16 +21,18 @@ Antes de comenzar, asegurese de tener instaldo:
 * Git
 
 1. Seleccionar una carpeta de su equipo local donde clonará y almacenará el repositorio
-2. Una vez seleccionada la carpeta, abra "Git Bash" y ejecute el comando git clone https://github.com/ManuelGamez/ProyectoDSM2021.git Esto le permitirá conectarse de una vez al repositorio.
+2. Una vez seleccionada la carpeta, abra "Git Bash" y ejecute el comando git clone. Esto le permitirá conectarse de una vez al repositorio.
 3. Crear una rama de colaboración para poder agregar los cambios realizados a Github.
 4. Una vez este conectado al repositorio y haya creado su rama, puede comenzar a colaborar desde su equipo local, para lo que será necesario abrir el proyecto desde su Android Studio.
 5. Realice las modificaciones necesarias y ejecute los comandos: git add -A para agregar los cambios, git commit -m "comentario" y finalmente git push -u origin SuRama para agregar los cambios al repositorio remoto.
 
 ## Autores ✒️
 
-* **Daniel Alexande Reyes Pineda** - **PO, SCRUM Master, desarrollador**
-* *Carlos Eduardo Peñate Salazar** - **desarrollador**
-* los demas solo copien plantilla...
+* **Daniel Alexande Reyes Pineda** - **SCRUM Master y desarrollador**
+* **Carlos Eduardo Peñate Salazar** - **UX/UI y desarrollador**
+* **Antonio José Caballero Bonilla** - **QA y desarrollador**
+* **Oscar Alexander Bonilla Sorto** - **QA y desarrollador**
+
 
 ## Licencia 📄
 
@@ -44,8 +46,12 @@ La licenciante no puede revocar estas libertades en tanto usted siga los términ
 
 ## Enlaces de interés 👀
 
-* [Tablero en Trello] https:..
+* [Tablero en Trello] https://trello.com/invite/b/lcT4DYXo/ATTIdda96f493fee42cd5e514b176c640f67F775559F/proyectodps02t-2023
 * [Manual de usuario en la nube] - https:..
 * [Manual Técnico en la nube] - https:..
 * [Video de funcionamiento] - https:..
-* [Enlace a Mockups] - https:..
+* [Enlace a Mockups] - https://www.figma.com/file/usH32S6093TPHjQ3bDhxsZ/Mockups-DSP-C2-2023?type=design&node-id=0%3A1&mode=dev
+* 
+## usuario generico
+carlossalazar2228@gmail.com
+123456
